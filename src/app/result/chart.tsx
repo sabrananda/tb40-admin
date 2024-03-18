@@ -1,18 +1,10 @@
 "use client"
-
 import { assessmentState } from "@/states/assessmentState"
 
 export default function Chart() {
-  const [pilar, ranks] = assessmentState((state) => ([state.pilar, state.ranks]))
-  // for (let i = 0; i < ranks.length; i++) {
-  //   // console.log(ranks.indexOf(pilar[i].id) + 1)
-  //   console.log(205 - (5 * (ranks.indexOf(pilar[i].id) + 1)))
-  //   console.log("-")
-  //   console.log(ranks.indexOf(pilar[i].id) + 1)
-  // }
 
-  // console.log(ranks.indexOf(pilar[2 - 1].id) + 1)
-  // console.log(ranks)
+  const [pilar, ranks] = assessmentState((state) => ([state.pilar, state.ranks]))
+
   return (
     <div className="mb-24">
       <div className="relative top-[5px] border-t border-green-500 h-0"><div className="pl-2 relative h-0 z-40 text-xs">Sangat Kuat</div></div>
@@ -29,7 +21,6 @@ export default function Chart() {
             <div className="text-xs rotate-90 text-nowrap w-2">{plr.namaIndo}</div>
           </div>
         ))}
-
       </div>
       <div className="hidden">
         <div className=" bg-blue-400 h-[5px]"></div>
@@ -72,9 +63,6 @@ export default function Chart() {
         <div className=" bg-blue-400 h-[190px]"></div>
         <div className=" bg-blue-400 h-[195px]"></div>
         <div className=" bg-blue-400 h-[200px]"></div>
-
-
-
       </div>
 
 

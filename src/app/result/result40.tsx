@@ -11,15 +11,15 @@ import tengahTengah from '@/asset/resultImage/tengah_tengah.png'
 import tengahBawah from '@/asset/resultImage/tengah_bawah.png'
 import { resultState } from '@/states/resultState'
 import { assessmentState } from '@/states/assessmentState'
+
 export default function Result40() {
-  // const [nama] = homeState((state) => ([state.nama]))
+
   const [warna40, warna18, warna6, warna3] = resultState((state) => [state.warna40, state.warna18, state.warna6, state.warna3])
   const [pilar, ranks, ranks18, ranks6, ranks3] = assessmentState((state) => ([state.pilar, state.ranks, state.ranks18, state.ranks6, state.ranks3]))
-  // console.log(ranks)
-  // console.log(warna40(ranks.indexOf(13) + 1))
+
   return (
     <div>
-      <div className="flex space-x-4 border p-2">
+      <div className="flex space-x-4 p-2">
         {/* kiri */}
         <div>
           <div className="flex-col space-y-8 p-2">

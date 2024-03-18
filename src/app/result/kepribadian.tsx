@@ -81,11 +81,11 @@ export default function Kepribadian() {
       </div>
       {/* kecenderungan gaya belajar */}
       <div className="text-justify">
-        {`${pilar3Array[ranks3[0] - 1 ?? 0].deskripsiGayaBelajar1 ?? ""}`}
+        {`${pilar3Array[ranks3[0] - 1]?.deskripsiGayaBelajar1}`}
       </div>
       {/* Penyentuh perasaan */}
       <div className="text-justify">
-        {`Penyentuh perasaan yang paling efektif untuk ${nama == "" ? "fulan" : nama} adalah ${pilar3Array[ranks3[0] - 1 ?? 0].deskripsiBahasa}`}
+        {`Penyentuh perasaan yang paling efektif untuk ${nama == "" ? "fulan" : nama} adalah ${pilar3Array[ranks3[0] - 1]?.deskripsiBahasa}`}
       </div>
       {/* bakat */}
       <div className="border">
@@ -192,15 +192,14 @@ export default function Kepribadian() {
         </div>
       </div>
       <div>
-        {`Karena ${nama == "" ? "fulan" : nama} memiliki bakat terkuat ${pilar[ranks[0] - 1].tulisan.toLowerCase()}, maka berpotensi akan muncul  sifat tercela ${pilar[ranks[0] - 1].akibatBerlebihan.tulisan.toLowerCase()}, yaitu ${pilar[ranks[0] - 1].akibatBerlebihan.definisi.toLowerCase()}.`}
+        {`Karena ${nama == "" ? "fulan" : nama} memiliki bakat terkuat ${pilar[ranks[0] - 1]?.tulisan.toLowerCase()}, maka berpotensi akan muncul  sifat tercela ${pilar[ranks[0] - 1]?.akibatBerlebihan.tulisan.toLowerCase()}, yaitu ${pilar[ranks[0] - 1]?.akibatBerlebihan.definisi.toLowerCase()}.`}
       </div>
       <div>
-        {`${pilar[ranks[0] - 1].akibatBerlebihan.perbaikan} Yaitu dengan cara antara lain ${pilar[pilar.findIndex((plr) => plr.namaArab === pilar[ranks[0] - 1].perbaikanBerlebihan[0])].definisi}`}
+        {`${pilar[ranks[0] - 1]?.akibatBerlebihan?.perbaikan} Yaitu dengan cara antara lain ${pilar[pilar.findIndex((plr) => plr.namaArab === pilar[ranks[0] - 1]?.perbaikanBerlebihan[0])]?.definisi}`}
       </div>
       <div>
-        {`Dan karena ${nama == "" ? "fulan" : nama} juga memiliki kelemahan pada sifat ${pilar[39].tulisan.toLowerCase()}, yaitu ${nama == "" ? "fulan" : nama} kurang "&PROSES!N130&", maka berpotensi akan muncul sifat tercela "&PROSES!N137&", yaitu "&PROSES!O137`}
+        {`Dan karena ${nama == "" ? "fulan" : nama} juga memiliki kelemahan pada sifat ${pilar[39]?.tulisan.toLowerCase()}, yaitu ${nama == "" ? "fulan" : nama} kurang "&PROSES!N130&", maka berpotensi akan muncul sifat tercela "&PROSES!N137&", yaitu "&PROSES!O137`}
       </div>
-      {/* <div>{`${}`}</div> */}
       <div>
         {`=PROSES!P137&" Yaitu dengan cara antara lain "&PROSES!M150&".`}
       </div>
