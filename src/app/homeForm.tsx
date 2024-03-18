@@ -1,12 +1,12 @@
 "use client"
-
 import { homeState } from "@/states/homeState"
 import { useRouter } from "next/navigation"
 
-
 export default function HomeForm() {
+
   const router = useRouter()
   const [nama, setNama] = homeState((state) => [state.nama, state.setNama])
+
   function mulaiHandler(e: any) {
     e.preventDefault()
     if (nama.length < 2) {
@@ -14,8 +14,8 @@ export default function HomeForm() {
     } else {
       router.push("/assessment")
     }
-
   }
+
   return (
     <form action={mulaiHandler} className="border border-gray-200 p-2 rounded-lg">
       <div>

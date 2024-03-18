@@ -2,6 +2,7 @@
 import { assessmentState } from "@/states/assessmentState"
 import { pilar3Array } from "@/states/defaultValue/pilar3Array"
 import { homeState } from "@/states/homeState"
+import Link from "next/link"
 
 
 export default function Kepribadian() {
@@ -13,15 +14,6 @@ export default function Kepribadian() {
       case 2: return "berfikir";
       case 3: return "berperasaan";
       default: ""
-    }
-  }
-  function gayaBelajar3(rank3: number) {
-    switch (rank3) {
-      case 1: return "Al Fuad (الفُؤَاد) / bergerak";
-      case 2: return "Al Bashar (البَصَر) / melihat";
-      case 3: return "As Sam'u (السَمْع) / mendengar";
-      default: ""
-
     }
   }
   function pribadi6(rank6: number[]) {
@@ -212,6 +204,7 @@ export default function Kepribadian() {
       <div>
         {`=PROSES!P137&" Yaitu dengan cara antara lain "&PROSES!M150&".`}
       </div>
+      <Link href={"https://github.com/sabrananda/tb40"} className="text-blue-500">tes</Link>
     </div>
   )
 }

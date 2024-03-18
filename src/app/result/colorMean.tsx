@@ -1,5 +1,5 @@
 export default function ColorMean() {
-  return <div className="flex justify-center">
+  return <div className="flex justify-center mt-10">
     <div className="w-[21cm] border p-2">
       <div className="text-center">
         Makna Warna

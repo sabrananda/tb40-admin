@@ -18,9 +18,11 @@ export default function ResultPage() {
       router.push("/assessment")
     }
   }, [])
+
   return (
     <div className="flex justify-center ">
       <div className="w-[21cm]">
+        <button onClick={() => { print() }} className="bg-blue-300 p-2 print:hidden">PRINT</button>
         <Result40 />
         <ColorMean />
         {ranks.length < 1 ? <></> : <StrongAndWeak />}
