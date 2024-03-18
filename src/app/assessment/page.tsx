@@ -1,5 +1,4 @@
-import AssessmentForm from "@/components/assessmentForm";
-// import { assessmentState } from "@/states/assessmentState";
+import AssessmentForm from "./assessmentForm";
 
 export default function AssessmentPage() {
   // const [reset] = assessmentState((state) => [state.reset])

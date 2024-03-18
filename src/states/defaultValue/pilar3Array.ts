@@ -7,7 +7,7 @@ export type Pilar3Array = {
   deskripsiGayaBelajar1: string;
   deskripsiGayaBelajar2: string;
   tempatBelajar: string;
-  bahasa: string;
+  bahasaHati: string;
   deskripsiBahasa: string;
 };
 
@@ -24,7 +24,7 @@ export const pilar3Array: Pilar3Array[] = [
       "belajar dengan bergerak dan menyentuh (meskipun mampu juga dengan mendengar dan melihat), membongkar sesuatu, praktek langsung dengan menggunakan peragaan, beraktifitas gerak fisik yang dapat langsung dirasakan, lebih suka langsung praktek dari pada teori.",
     tempatBelajar:
       "Tempat belajar yang nyaman dengan gaya belajar ini antara lain di alam terbuka, lapangan, bengkel, sawah, atau tempat lain yang memungkinkan untuk melakukan banyak gerakan.",
-    bahasa: "Bahasa Pelayanan",
+    bahasaHati: "Bahasa Pelayanan",
     deskripsiBahasa:
       "Bahasa Hati dengan melayani kemauannya, melaksanakan perintahnya, menjaga rahasianya, menutupi aibnya, memaafkan kesalahannya, atau bersabar atas perilakunya.",
   },
@@ -40,7 +40,7 @@ export const pilar3Array: Pilar3Array[] = [
       "belajar dengan cara melihat (meskipun mampu juga dengan mendengar dan bergerak), lebih suka melihat gambar atau diagram, menonton pertunjukan, demonstrasi suatu kegiatan, atau menyaksikan video, menyukai tampilan simbol-simbol, warna-warna, tulisan yang indah, gambar yang mencolok, dan pemandangan yang indah.",
     tempatBelajar:
       "Tempat belajar yang nyaman dengan gaya belajar ini harus memiliki penerangan yang cukup dan pemandangan disekitar tempat belajar tampak menarik sehingga nyaman dengan visualnya.",
-    bahasa: "Bahasa Kebersamaan",
+    bahasaHati: "Bahasa Kebersamaan",
     deskripsiBahasa:
       "Bahasa Hati dengan cara menemaninya, mendengarkan keluhannya, memberikan senyuman, memenuhi janji kepadanya, bercanda dengannya, memudahkan urusan dengannya, atau dengan menyayanginya.",
   },
@@ -56,7 +56,7 @@ export const pilar3Array: Pilar3Array[] = [
       "belajar dengan cara mendengar (meskipun mampu juga dengan melihat dan bergerak), mendengar ceramah guru, pidato, mendengarkan audio atau rekaman, berdiskusi, merangkum pelajaran untuk dibaca kembali dengan suara dikeraskan atau dengan cara merekam suara.",
     tempatBelajar:
       "Tempat belajar yang nyaman dengan gaya belajar ini suasananya harus cukup hening, tidak berisik, dan tidak ada suara gaduh disekitar.",
-    bahasa: "Bahasa Perlindungan",
+    bahasaHati: "Bahasa Perlindungan",
     deskripsiBahasa:
       "Bahasa Hati yang berupa pemberian hadiah, memberi motivasi dengan kata-kata penyemangat, keberanian untuk mendekatinya, menolong kesulitannya, merasa mencemburuinya, atau dengan mengajaknya bersaing.",
   },

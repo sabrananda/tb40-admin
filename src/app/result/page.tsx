@@ -1,9 +1,9 @@
 "use client"
-import Chart from "@/components/resultPage/chart";
-import ColorMean from "@/components/resultPage/colorMean";
-import Kepribadian from "@/components/resultPage/kepribadian";
-import Result40 from "@/components/resultPage/result40";
-import StrongAndWeak from "@/components/resultPage/strongnweak";
+import Chart from "./chart";
+import ColorMean from "./colorMean";
+import Kepribadian from "./kepribadian";
+import Result40 from "./result40";
+import StrongAndWeak from "./strongnweak";
 import { assessmentState } from "@/states/assessmentState";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";

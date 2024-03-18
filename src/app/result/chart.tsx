@@ -14,21 +14,23 @@ export default function Chart() {
   // console.log(ranks.indexOf(pilar[2 - 1].id) + 1)
   // console.log(ranks)
   return (
-    <div>
+    <div className="mb-24">
 
-      <div className="relative top-[5px] border-t border-green-500 h-0"><div className="relative h-0 z-40 -left-28">Sangat Kuat</div></div>
+      <div className="relative top-[5px] border-t border-green-500 h-0"><div className="relative h-0 z-40 text-xs">Sangat Kuat</div></div>
 
-      <div className="relative top-[32px] border-t border-green-500 h-0"><div className="relative  h-0 z-40 -left-28">Kuat</div></div>
+      <div className="relative top-[32px] border-t border-green-500 h-0"><div className="relative h-0 z-40 text-xs">Kuat</div></div>
 
-      <div className="relative top-[62px] border-t border-green-500 h-0"><div className="relative top-[30px] h-0 z-40 -left-28">Ma'ruf/Sedang</div></div>
+      <div className="relative top-[62px] border-t border-green-500 h-0"><div className="relative top-[30px] h-0 z-40 text-xs">Ma'ruf/Sedang</div></div>
 
-      <div className="relative top-[139px] border-t border-green-500 h-0"><div className="relative  h-0 z-40 -left-28">Lemah</div></div>
-      <div className="relative top-[169px] border-t border-green-500 h-0"><div className="relative h-0 z-40 -left-28">Sangat Lemah</div></div>
+      <div className="relative top-[139px] border-t border-green-500 h-0"><div className="relative  h-0 z-40 text-xs">Lemah</div></div>
+      <div className="relative top-[169px] border-t border-green-500 h-0"><div className="relative h-0 z-40 text-xs">Sangat Lemah</div></div>
 
-      <div className="  flex justify-around h-[200px]">
+      <div className="flex justify-around h-[216px]">
+        <div className="w-20"></div>
         {pilar.map((plr, idx) => (
           <div className="relative grid grid-cols-1 content-end h-[100%]" key={idx} >
             <span className={`bg-blue-400 text-xs w-2 h-[${205 - (5 * (ranks.indexOf(plr.id) + 1))}px]`}></span>
+            <div className="text-xs rotate-90 text-nowrap w-2">{plr.namaIndo}</div>
           </div>
         ))}
 
@@ -78,9 +80,7 @@ export default function Chart() {
 
 
       </div>
-      <div className=" w-[21cm] border flex justify-around">
-        {pilar.map((plr, idx) => (<div key={idx} className=" border h-28"><div className="rotate-90 relative text-nowrap w-4 text-xs">{plr.namaIndo}</div></div>))}
-      </div>
+
 
     </div>
   )
