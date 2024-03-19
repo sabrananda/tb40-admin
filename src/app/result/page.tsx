@@ -21,15 +21,17 @@ export default function ResultPage() {
     <div className="flex justify-center border">
       <div className="w-[21cm]">
         <button onClick={() => { print() }} className="bg-blue-300 p-2 print:hidden">PRINT</button>
-        <div className="print:h-[28cm]">
+        <div className="print:h-[29.1cm]">
         <Result40 />
         </div>
-        <div className="print:h-[28cm] print:flex-col print:space-y-10">
+        <div className="print:h-[29.1cm] print:flex-col print:space-y-10">
           <ColorMean />
         {ranks.length < 1 ? <></> : <StrongAndWeak />}
         <Chart />
         </div>
+        <div className="">
         <Kepribadian />
+        </div>
       </div>
     </div >
   )

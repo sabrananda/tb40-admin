@@ -153,10 +153,10 @@ export default function Kepribadian() {
             <div className="font-bold underline">
               {`${idx + 1}. ${pilar3Array[rank3 - 1].bacaArab} / ${pilar3Array[rank3 - 1].gayaBelajar}`}
             </div>
-            <div>
+            <div className="text-justify">
               {`${pilar3Array[rank3 - 1].deskripsiGayaBelajar1}`}
             </div>
-            <div>
+            <div className="text-justify">
               {`${pilar3Array[rank3 - 1].tempatBelajar}`}
             </div>
           </div>))}
@@ -175,7 +175,7 @@ export default function Kepribadian() {
         {ranks3.map((rank3, idx) => (
           <div key={idx}>
             <div>{`${idx + 1}. ${pilar3Array[rank3 - 1].bahasaHati}`}</div>
-            <div>
+            <div className="text-justify">
               {`${pilar3Array[rank3 - 1].deskripsiBahasa}`}
             </div>
           </div>
@@ -191,19 +191,18 @@ export default function Kepribadian() {
           (Ibnul Qayyim, Madaarijus Saalikin, 2/295)
         </div>
       </div>
-      <div>
+      <div className="text-justify">
         {`Karena ${nama == "" ? "fulan" : nama} memiliki bakat terkuat ${pilar[ranks[0] - 1]?.tulisan.toLowerCase()}, maka berpotensi akan muncul  sifat tercela ${pilar[ranks[0] - 1]?.akibatBerlebihan.tulisan.toLowerCase()}, yaitu ${pilar[ranks[0] - 1]?.akibatBerlebihan.definisi.toLowerCase()}.`}
       </div>
-      <div>
+      <div className="text-justify">
         {`${pilar[ranks[0] - 1]?.akibatBerlebihan?.perbaikan} Yaitu dengan cara antara lain ${pilar[pilar.findIndex((plr) => plr.namaArab === pilar[ranks[0] - 1]?.perbaikanBerlebihan[0])]?.definisi}`}
       </div>
-      <div>
-        {`Dan karena ${nama == "" ? "fulan" : nama} juga memiliki kelemahan pada sifat ${pilar[39]?.tulisan.toLowerCase()}, yaitu ${nama == "" ? "fulan" : nama} kurang "&PROSES!N130&", maka berpotensi akan muncul sifat tercela "&PROSES!N137&", yaitu "&PROSES!O137`}
+      <div className="text-justify">
+        {`Dan karena ${nama == "" ? "fulan" : nama} juga memiliki kelemahan pada sifat ${pilar[39]?.tulisan.toLowerCase()}, yaitu ${nama == "" ? "fulan" : nama} kurang ${pilar[ranks[39] - 1].labelDiri}, maka berpotensi akan muncul sifat tercela ${pilar[ranks[39] - 1].akibatLalai.tulisan}, yaitu ${pilar[ranks[39] - 1].akibatLalai.definisi}`}
       </div>
-      <div>
-        {`=PROSES!P137&" Yaitu dengan cara antara lain "&PROSES!M150&".`}
+      <div className="text-justify">
+        {`${pilar[ranks[39] - 1].akibatLalai.perbaikan} Yaitu dengan cara antara lain ${pilar[ranks[39] - 1].definisi}.`}
       </div>
-      <Link href={"https://github.com/sabrananda/tb40"} className="text-blue-500">tes</Link>
     </div>
   )
 }
