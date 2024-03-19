@@ -9,7 +9,7 @@ export default function StrongAndWeak() {
     <div className="flex border">
       {/* kekuatan */}
       <div className="flex-1 border-r p-2">
-        <div className="text-center mb-2 border-b">Karakter Kekuatan</div>
+        <div className="text-center mb-2 border-b font-bold bg-red-500 text-white">Karakter Kekuatan</div>
         <div>1. {pilar[ranks[0] - 1]?.tulisan}</div>
         <div>2. {pilar[ranks[1] - 1]?.tulisan}</div>
         <div>3. {pilar[ranks[2] - 1]?.tulisan}</div>
@@ -19,7 +19,7 @@ export default function StrongAndWeak() {
       </div>
       {/* kelemahan */}
       <div className="flex-1 p-2">
-        <div className="text-center mb-2 border-b">Karakter Kelemahan</div>
+        <div className="text-center mb-2 border-b font-bold bg-slate-600 text-white">Karakter Kelemahan</div>
         <div>1. {pilar[ranks[34] - 1]?.tulisan}</div>
         <div>2. {pilar[ranks[35] - 1]?.tulisan}</div>
         <div>3. {pilar[ranks[36] - 1]?.tulisan}</div>

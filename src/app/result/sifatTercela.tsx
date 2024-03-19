@@ -9,7 +9,7 @@ export default function SifatTercela() {
     <div>
       {/* judul */}
       <div className="flex-col space-y-2 border">
-        <div className="text-center border-b text-lg bg-slate-700 font-bold text-white uppercase">POTENSI MUNCULNYA SIFAT TERCELA & SOLUSINYA</div>
+        <div className="text-center border-b text-lg bg-slate-600 font-bold text-white uppercase">POTENSI MUNCULNYA SIFAT TERCELA & SOLUSINYA</div>
         <div className="text-center italic">
           “Setiap sifat mulia terkepung diantara dua sifat tercela. Sifat mulia berada di tengah sedang yang berada di kedua ujungnya adalah sifat tercela”.
         </div>

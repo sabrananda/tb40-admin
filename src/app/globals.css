@@ -11,7 +11,9 @@ input::-webkit-inner-spin-button {
 
 :root {
   print-color-adjust: exact;
+ 
 }
+@page { size:  auto; margin: 1cm; }
 /* Firefox */
 /* input[type=number] {
   -moz-appearance: textfield;

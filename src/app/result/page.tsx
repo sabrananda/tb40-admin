@@ -12,6 +12,7 @@ import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import SifatTercela from "./sifatTercela";
 import Chart2 from "./chart2";
+import Identity from "./identitas";
 
 export default function ResultPage() {
   const router = useRouter()
@@ -25,26 +26,27 @@ export default function ResultPage() {
   return (
     <div className="flex justify-center m-2">
       {/* tengah halaman */}
-      <div className="w-[21cm]">
+      <div className="w-[19cm]">
         <div className="flex justify-end">
-          <button onClick={() => { print() }} className="my-1 bg-blue-300 p-2 print:hidden">PRINT</button>
+          <button onClick={() => { window.print() }} className="my-1 bg-blue-300 p-2 print:hidden">PRINT</button>
         </div>
-        <div className="print:h-[29.7cm] h-[29.7cm]">
+        <div className="print:h-[27.5cm]">
+          <Identity />
+        </div>
+        <div className="print:h-[27.7cm]">
           <Result40 />
           <ColorMean />
         </div>
-        <div className="print:h-[29.7cm] print:flex-col print:space-y-10">
+        <div className="print:h-[27.7cm] print:flex-col print:space-y-10">
           {ranks.length < 1 ? <></> : <StrongAndWeak />}
           <Chart />
           <Chart2 />
         </div>
-        <div className="print:h-[29.7cm] flex-col space-y-10 border p-2">
+        <div className="print:h-[110.8cm] flex-col space-y-10 border p-2">
           <Kepribadian />
-        </div>
-        <div className="print:h-[89.1cm] flex-col space-y-10 border p-2">
           <Bakat />
         </div>
-        <div className="print:h-[29.7cm] flex-col space-y-10 border p-2">
+        <div className="print:h-[27.7cm] flex-col space-y-10 border p-2">
           <GayaBelajar />
         </div>
         <div className=" flex-col space-y-10 border p-2">
