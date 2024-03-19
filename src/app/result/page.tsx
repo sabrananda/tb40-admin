@@ -11,6 +11,7 @@ import { assessmentState } from "@/states/assessmentState";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import SifatTercela from "./sifatTercela";
+import Chart2 from "./chart2";
 
 export default function ResultPage() {
   const router = useRouter()
@@ -28,13 +29,14 @@ export default function ResultPage() {
         <div className="flex justify-end">
           <button onClick={() => { print() }} className="my-1 bg-blue-300 p-2 print:hidden">PRINT</button>
         </div>
-        <div className="print:h-[29.7cm]">
+        <div className="print:h-[29.7cm] h-[29.7cm]">
           <Result40 />
+          <ColorMean />
         </div>
         <div className="print:h-[29.7cm] print:flex-col print:space-y-10">
-          <ColorMean />
           {ranks.length < 1 ? <></> : <StrongAndWeak />}
           <Chart />
+          <Chart2 />
         </div>
         <div className="print:h-[29.7cm] flex-col space-y-10 border p-2">
           <Kepribadian />

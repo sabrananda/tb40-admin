@@ -19,7 +19,11 @@ export default function Chart() {
         <div className="w-20"></div>
         {pilar.map((plr, idx) => (
           <div className="relative grid grid-cols-1 content-end h-[100%]" key={idx} >
-            <span className={`bg-blue-400 text-xs w-2 h-[${205 - (5 * (ranks.indexOf(plr.id) + 1))}px]`}></span>
+            <span className={`bg-blue-400 text-xs w-2 h-[${205 - (5 * (ranks.indexOf(plr.id) + 1))}px]`}>
+              <span className="relative -top-4 text-center">
+                {pilar[idx].skor}
+              </span>
+            </span>
             <div className="text-xs rotate-90 text-nowrap w-2">{plr.namaIndo}</div>
           </div>
         ))}
