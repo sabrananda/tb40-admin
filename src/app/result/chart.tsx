@@ -6,12 +6,14 @@ export default function Chart() {
   const [pilar, ranks] = assessmentState((state) => ([state.pilar, state.ranks]))
 
   return (
-    <div className="mb-24">
+    <div className="p-2 border-x h-[9cm]">
+
       <div className="relative top-[5px] border-t border-green-500 h-0"><div className="pl-2 relative h-0 z-40 text-xs">Sangat Kuat</div></div>
       <div className="relative top-[32px] border-t border-green-500 h-0"><div className="pl-2 relative h-0 z-40 text-xs">Kuat</div></div>
       <div className="relative top-[62px] border-t border-green-500 h-0"><div className="pl-2 relative top-[30px] h-0 z-40 text-xs">Ma'ruf/Sedang</div></div>
       <div className="relative top-[139px] border-t border-green-500 h-0"><div className="pl-2 relative  h-0 z-40 text-xs">Lemah</div></div>
       <div className="relative top-[169px] border-t border-green-500 h-0"><div className="pl-2 relative h-0 z-40 text-xs">Sangat Lemah</div></div>
+      <div className="relative top-[200px] border-t border-slate-500 h-0"><div className="pl-2 relative h-0 z-40 text-xs"></div></div>
 
       <div className="flex justify-around h-[216px]">
         <div className="w-20"></div>

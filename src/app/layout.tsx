@@ -20,10 +20,10 @@ export default function RootLayout({
       {/* <body className={inter.className}>{children}</body> */}
       <body>
         <div>
-          <div className="flex print:hidden">
-            <Link href="/" className="bg-slate-300 p-2 hover:bg-slate-400 cursor-pointer">home</Link>
-            <Link href="/assessment" className="bg-slate-300 p-2 hover:bg-slate-400 cursor-pointer">assessment</Link>
-            <Link href="/result" className="bg-slate-300 p-2 hover:bg-slate-400 cursor-pointer">result</Link>
+          <div className="flex justify-center bg-slate-300 print:hidden">
+            <Link href="/" className="underline hover:font-bold bg-slate-300 p-2 hover:bg-slate-400 cursor-pointer">home</Link>
+            <Link href="/assessment" className="underline hover:font-bold bg-slate-300 p-2 hover:bg-slate-400 cursor-pointer">assessment</Link>
+            <Link href="/result" className="underline hover:font-bold bg-slate-300 p-2 hover:bg-slate-400 cursor-pointer">result</Link>
           </div>
           <div>
             {children}

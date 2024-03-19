@@ -2,20 +2,11 @@
 import { assessmentState } from "@/states/assessmentState"
 import { pilar3Array } from "@/states/defaultValue/pilar3Array"
 import { homeState } from "@/states/homeState"
-import Link from "next/link"
-
 
 export default function Kepribadian() {
   const [nama] = homeState((state) => [state.nama])
-  const [introvertAverage, ekstrovertAverage, ranks, ranks3, ranks6, ranks18, pilar, labelDiri, julukan] = assessmentState((state) => ([state.introvertAverage, state.ekstrovertAverage, state.ranks, state.ranks3, state.ranks6, state.ranks18, state.pilar, state.labelDiri, state.julukan]))
-  function pribadi3(rank3: number[]) {
-    switch (rank3[0]) {
-      case 1: return "bersemangat";
-      case 2: return "berfikir";
-      case 3: return "berperasaan";
-      default: ""
-    }
-  }
+  const [introvertAverage, ekstrovertAverage, ranks3, ranks6, ranks18, labelDiri, julukan] = assessmentState((state) => ([state.introvertAverage, state.ekstrovertAverage, state.ranks3, state.ranks6, state.ranks18, state.labelDiri, state.julukan]))
+
   function pribadi6(rank6: number[]) {
     switch (rank6[0]) {
       case 1: return "al-hamaasah (الحَمَاسَة)";
@@ -29,7 +20,6 @@ export default function Kepribadian() {
   }
   function pribadi18(rank18: number[]) {
     switch (rank18[0]) {
-
       case 1: return "bekerja keras karena ambisi";
       case 2: return "bekerja keras karena wibawa";
       case 3: return "bekerja keras karena giat bekerja";
@@ -49,22 +39,14 @@ export default function Kepribadian() {
       case 17: return "melayani dengan cara menjaga";
       case 18: return "melayani dengan cara mengalah";
       default: ""
-
     }
   }
-  // console.log("===================")
-  // console.log(pilar.findIndex((plr, idx, obj) => plr.namaArab === pilar[34].namaArab))
-
-  // console.log("===================")
-  // console.log(pilar[34].namaArab === "الشَّجَاعَة")
-  // console.log(pilar[34].namaArab === pilar[ranks[0] - 1].perbaikanBerlebihan[0])
   return (
-    <div className="flex-col space-y-2 border p-2">
-      {/* Kepribadian */}
+    <div className="">
       <div className="flex-col space-y-2">
         <div className="text-center border-b text-lg bg-green-500 font-bold text-white uppercase">Kepribadian {nama == "" ? "fulan" : nama}</div>
         <div className="text-justify">
-          {`${nama == "" ? "fulan" : nama} memiliki kepribadian ${introvertAverage > ekstrovertAverage ? "introvert (senang dengan kesendirian)" : "extrovert (senang bertemu orang)"}. Secara umum jiwanya cenderung suka ${pribadi3(ranks3)}. Disamping ${nama == "" ? "fulan" : nama} cenderung suka ${pribadi6(ranks6)} ${nama == "" ? "fulan" : nama} juga memiliki kecenderungan ${pribadi18(ranks18)}.`}
+          {`${nama == "" ? "fulan" : nama} memiliki kepribadian ${introvertAverage > ekstrovertAverage ? "introvert (senang dengan kesendirian)" : "extrovert (senang bertemu orang)"}. Secara umum jiwanya cenderung suka ${pilar3Array[ranks3[0] - 1]?.bacaIndo}. Disamping ${nama == "" ? "fulan" : nama} cenderung suka ${pribadi6(ranks6)} ${nama == "" ? "fulan" : nama} juga memiliki kecenderungan ${pribadi18(ranks18)}.`}
         </div>
         <div className="text-justify">
           {`${nama == "" ? "fulan" : nama} adalah pribadi yang ${labelDiri[0]}, ${labelDiri[1]}, ${labelDiri[2]}, ${labelDiri[3]}, dan ${labelDiri[4]}.`}
@@ -86,122 +68,6 @@ export default function Kepribadian() {
       {/* Penyentuh perasaan */}
       <div className="text-justify">
         {`Penyentuh perasaan yang paling efektif untuk ${nama == "" ? "fulan" : nama} adalah ${pilar3Array[ranks3[0] - 1]?.deskripsiBahasa}`}
-      </div>
-      {/* bakat */}
-      <div className="border">
-
-        <div className="text-lg text-center bg-green-500 font-bold text-white">BAKAT</div>
-        <div className="text-center">Bakat yang dimaksud adalah sifat (karakter) yang mendorong seseorang untuk bekerja atau beramal (Kinerja FISIK) sesuai dengan karakter unik yang dimilikinya</div>
-      </div>
-      {/* bakat kekuatan */}
-      <div className=" px-2 w-fit bg-red-500 font-bold text-white">
-        BAKAT KEKUATAN
-      </div>
-      {ranks.map((rank, idx) => {
-        if (idx < 6) {
-          return (<div key={idx}>
-            <div className="font-bold underline">
-              {`${idx + 1}. ${pilar[rank - 1].tulisan}`}
-            </div>
-            <div className="text-justify">
-              {`Bakat terkuat ${nama == "" ? "fulan" : nama} adalah ${pilar[rank - 1].tulisan}, yaitu ${pilar[rank - 1].definisi}, sehingga bakat ini menjadikannya ${pilar[rank - 1].labelDiri}.`}
-            </div>
-            <div className="text-justify">
-              {`Profesi atau peran yang sesuai dengan bakat ini antara lain: ${pilar[rank - 1].profesi}.`}
-            </div>
-            <div className="text-justify">
-              {`Jurusan studi yang sesuai dengan bakat ini antara lain: ${pilar[rank - 1].jurusanStudi}.`}
-            </div>
-          </div>)
-        }
-      })}
-      {/* bakat kelemahan */}
-      <div className=" px-2 w-fit bg-slate-500 font-bold text-white">
-        BAKAT KELEMAHAN
-      </div>
-      {ranks.map((rank, idx) => {
-        if (idx > 33) {
-          return (<div key={idx}>
-            <div className="font-bold underline">
-              {`${40 - idx}. ${pilar[rank - 1].tulisan}`}
-            </div>
-            <div className="text-justify">
-              {`Sifat lemah ${nama == "" ? "fulan" : nama} ${idx === 39 ? "" : "berikutnya"} adalah ${pilar[rank - 1].tulisan}, yaitu ${nama == "" ? "fulan" : nama} kurang ${pilar[rank - 1].definisi}, sehingga kelemahan ini menjadikan ${nama == "" ? "fulan" : nama} kurang ${pilar[rank - 1].labelDiri}.`}
-            </div>
-            <div className="text-justify">
-              {`Profesi atau peran yang kurang sesuai dengan kelemahan ${nama == "" ? "fulan" : nama} ini antara lain: ${pilar[rank - 1].profesi}.`}
-            </div>
-            <div className="text-justify">
-              {`Jurusan studi yang kurang sesuai dengan kelemahan ${nama == "" ? "fulan" : nama} ini antara lain: ${pilar[rank - 1].jurusanStudi}.`}
-            </div>
-          </div>)
-        }
-      }).reverse()}
-      {/* gaya belajar */}
-      <div className="flex-col space-y-2 border">
-        <div className="text-center border-b text-lg bg-green-500 font-bold text-white uppercase">GAYA BELAJAR</div>
-        <div className="text-center">
-          Gaya belajar adalah cara efektif yang dilakukan oleh seseorang dalam menggunakan inderanya dalam belajar untuk menerima ilmu atau pengetahuan (Kinerja AKAL).
-        </div>
-      </div>
-      <div>
-        {`Urutan gaya belajar ${nama == "" ? "fulan" : nama} adalah:`}
-      </div>
-      <div>
-        {ranks3.map((rank3, idx) => (
-          <div key={idx} className="flex-col space-y-2 mt-3">
-            <div className="font-bold underline">
-              {`${idx + 1}. ${pilar3Array[rank3 - 1].bacaArab} / ${pilar3Array[rank3 - 1].gayaBelajar}`}
-            </div>
-            <div className="text-justify">
-              {`${pilar3Array[rank3 - 1].deskripsiGayaBelajar1}`}
-            </div>
-            <div className="text-justify">
-              {`${pilar3Array[rank3 - 1].tempatBelajar}`}
-            </div>
-          </div>))}
-      </div>
-      {/* bahasa hati */}
-      <div className="flex-col space-y-2 border">
-        <div className="text-center border-b text-lg bg-green-500 font-bold text-white uppercase">BAHASA HATI</div>
-        <div className="text-center">
-          Bahasa hati adalah bahasa yang digunakan untuk menumbuhkan mahabbah dengan menyentuh hati seseorang sehingga  dirinya merasa disayangi atau dicintai (Kinerja HATI).
-        </div>
-      </div>
-      <div>
-        {`Urutan bahasa hati yang dapat menyentuh hati ${nama == "" ? "fulan" : nama} adalah:`}
-      </div>
-      <div>
-        {ranks3.map((rank3, idx) => (
-          <div key={idx}>
-            <div>{`${idx + 1}. ${pilar3Array[rank3 - 1].bahasaHati}`}</div>
-            <div className="text-justify">
-              {`${pilar3Array[rank3 - 1].deskripsiBahasa}`}
-            </div>
-          </div>
-        ))}
-      </div>
-      {/* potensi sifat tercela */}
-      <div className="flex-col space-y-2 border">
-        <div className="text-center border-b text-lg bg-slate-700 font-bold text-white uppercase">POTENSI MUNCULNYA SIFAT TERCELA & SOLUSINYA</div>
-        <div className="text-center italic">
-          “Setiap sifat mulia terkepung diantara dua sifat tercela. Sifat mulia berada di tengah sedang yang berada di kedua ujungnya adalah sifat tercela”.
-        </div>
-        <div className="text-center text-xs">
-          (Ibnul Qayyim, Madaarijus Saalikin, 2/295)
-        </div>
-      </div>
-      <div className="text-justify">
-        {`Karena ${nama == "" ? "fulan" : nama} memiliki bakat terkuat ${pilar[ranks[0] - 1]?.tulisan.toLowerCase()}, maka berpotensi akan muncul  sifat tercela ${pilar[ranks[0] - 1]?.akibatBerlebihan.tulisan.toLowerCase()}, yaitu ${pilar[ranks[0] - 1]?.akibatBerlebihan.definisi.toLowerCase()}.`}
-      </div>
-      <div className="text-justify">
-        {`${pilar[ranks[0] - 1]?.akibatBerlebihan?.perbaikan} Yaitu dengan cara antara lain ${pilar[pilar.findIndex((plr) => plr.namaArab === pilar[ranks[0] - 1]?.perbaikanBerlebihan[0])]?.definisi}`}
-      </div>
-      <div className="text-justify">
-        {`Dan karena ${nama == "" ? "fulan" : nama} juga memiliki kelemahan pada sifat ${pilar[39]?.tulisan.toLowerCase()}, yaitu ${nama == "" ? "fulan" : nama} kurang ${pilar[ranks[39] - 1].labelDiri}, maka berpotensi akan muncul sifat tercela ${pilar[ranks[39] - 1].akibatLalai.tulisan}, yaitu ${pilar[ranks[39] - 1].akibatLalai.definisi}`}
-      </div>
-      <div className="text-justify">
-        {`${pilar[ranks[39] - 1].akibatLalai.perbaikan} Yaitu dengan cara antara lain ${pilar[ranks[39] - 1].definisi}.`}
       </div>
     </div>
   )

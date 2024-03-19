@@ -18,7 +18,7 @@ export default function Result40() {
   const [pilar, ranks, ranks18, ranks6, ranks3] = assessmentState((state) => ([state.pilar, state.ranks, state.ranks18, state.ranks6, state.ranks3]))
 
   return (
-    <div>
+    <div className='border'>
       <div className="flex space-x-4 p-2">
         {/* kiri */}
         <div>
