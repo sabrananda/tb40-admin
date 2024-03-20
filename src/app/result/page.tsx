@@ -19,7 +19,7 @@ export default function ResultPage() {
   const [ranks] = assessmentState((state) => ([state.ranks]))
   useEffect(() => {
     if (ranks.length < 1) {
-      router.push("/assessment")
+      router.push("/")
     }
   }, [])
 
@@ -27,7 +27,8 @@ export default function ResultPage() {
     <div className="flex justify-center m-2">
       {/* tengah halaman */}
       <div className="w-[19cm]">
-        <div className="flex justify-end">
+        <div className="flex justify-end space-x-2">
+          <button onClick={() => { router.push("/") }} className="my-1 bg-red-300 p-2 print:hidden">RESET</button>
           <button onClick={() => { window.print() }} className="my-1 bg-blue-300 p-2 print:hidden">PRINT</button>
         </div>
         <div className="print:h-[27.5cm]">
@@ -40,7 +41,7 @@ export default function ResultPage() {
         <div className="print:h-[27.7cm] print:flex-col print:space-y-10">
           {ranks.length < 1 ? <></> : <StrongAndWeak />}
           <Chart />
-          <Chart2 />
+          {/* <Chart2 /> */}
         </div>
         <div className="print:h-[110.8cm] flex-col space-y-10 border p-2">
           <Kepribadian />

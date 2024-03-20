@@ -8,11 +8,11 @@ export default function Chart() {
   return (
     <div className="p-2 border-x h-[9cm]">
 
-      <div className="relative top-[5px] border-t border-green-500 h-0"><div className="pl-2 relative h-0 z-40 text-xs">Sangat Kuat</div></div>
-      <div className="relative top-[32px] border-t border-green-500 h-0"><div className="pl-2 relative h-0 z-40 text-xs">Kuat</div></div>
-      <div className="relative top-[62px] border-t border-green-500 h-0"><div className="pl-2 relative top-[30px] h-0 z-40 text-xs">Ma'ruf/Sedang</div></div>
-      <div className="relative top-[139px] border-t border-green-500 h-0"><div className="pl-2 relative  h-0 z-40 text-xs">Lemah</div></div>
-      <div className="relative top-[169px] border-t border-green-500 h-0"><div className="pl-2 relative h-0 z-40 text-xs">Sangat Lemah</div></div>
+      <div className="relative top-[5px] border-t border-green-500 h-0"><div className="pl-2 relative h-0 z-40 text-xs">{`Sangat Kuat`}</div></div>
+      <div className="relative top-[32px] border-t border-green-500 h-0"><div className="pl-2 relative h-0 z-40 text-xs">{`Kuat`}</div></div>
+      <div className="relative top-[62px] border-t border-green-500 h-0"><div className="pl-2 relative top-[30px] h-0 z-40 text-xs">{`Ma'ruf/Sedang`}</div></div>
+      <div className="relative top-[139px] border-t border-green-500 h-0"><div className="pl-2 relative  h-0 z-40 text-xs">{`Lemah`}</div></div>
+      <div className="relative top-[169px] border-t border-green-500 h-0"><div className="pl-2 relative h-0 z-40 text-xs">{`Sangat Lemah`}</div></div>
       <div className="relative top-[200px] border-t border-slate-500 h-0"><div className="pl-2 relative h-0 z-40 text-xs"></div></div>
 
       <div className="flex justify-around h-[216px]">
@@ -20,9 +20,9 @@ export default function Chart() {
         {pilar.map((plr, idx) => (
           <div className="relative grid grid-cols-1 content-end h-[100%]" key={idx} >
             <span className={`bg-blue-400 text-xs w-2 h-[${205 - (5 * (ranks.indexOf(plr.id) + 1))}px]`}>
-              <span className="relative -top-4 text-center">
+              {/* <span className="relative -top-4 text-center">
                 {pilar[idx].skor}
-              </span>
+              </span> */}
             </span>
             <div className="text-xs rotate-90 text-nowrap w-2">{plr.namaIndo}</div>
           </div>

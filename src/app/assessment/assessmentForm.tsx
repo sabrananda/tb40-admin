@@ -16,7 +16,7 @@ export default function AssessmentForm() {
 
 
       <div className="mb-10 flex justify-end">
-        <button className="font-bold bg-blue-200 rounded-sm px-2 py-1 hover:bg-blue-400" onClick={reset}>reset</button>
+        {/* <button className="font-bold bg-blue-200 rounded-sm px-2 py-1 hover:bg-blue-400" onClick={reset}>reset</button> */}
       </div>
       <form action={submitHandler} className="p-2">
         <div className="mb-10 flex justify-end">
@@ -25,7 +25,7 @@ export default function AssessmentForm() {
         {pilar.map((plr, idx) => (
           <div key={idx} className="flex w-full">
             <div className="border p-2 w-10">{plr.id}.</div>
-            <div className="border p-2 w-36">{plr.namaIndo}</div>
+            {/* <div className="border p-2 w-36">{plr.namaIndo}</div> */}
             <div className="border p-2 w-3/4">{plr.pernyataan}</div>
 
             <input

@@ -319,7 +319,10 @@ export default function Result40() {
                 <div className="flex justify-center w-20">
                   <Image
                     src={kananAtas}
-                    width={60}
+                    style={{
+                      width: '80%',
+                      height: 'auto',
+                    }}
                     alt="ta'tsiir" />
                 </div>
               </div>
