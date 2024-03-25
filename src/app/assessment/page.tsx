@@ -7,11 +7,11 @@ import { useRouter } from "next/navigation";
 export default function AssessmentPage() {
   const router = useRouter()
   const [nama] = homeState((state) => [state.nama])
-  // useEffect(() => {
-  //   if (nama === "") {
-  //     router.push("/")
-  //   }
-  // }, [])
+  useEffect(() => {
+    if (nama === "") {
+      router.push("/")
+    }
+  }, [nama, router])
   return (
     <div>
       <div className="p-2">isilah dengan akngka 1-100, lalu klik submit</div>

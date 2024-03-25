@@ -7,8 +7,8 @@ export default function HomeForm() {
   const router = useRouter()
   const [nama, setNama] = homeState((state) => [state.nama, state.setNama])
 
-  function mulaiHandler(e: any) {
-    e.preventDefault()
+  function mulaiHandler() {
+  // e.preventDefault()
     if (nama.length < 2) {
       alert("masukkan nama")
     } else {

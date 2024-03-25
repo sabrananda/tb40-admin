@@ -11,24 +11,27 @@ import { assessmentState } from "@/states/assessmentState";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import SifatTercela from "./sifatTercela";
-import Chart2 from "./chart2";
 import Identity from "./identitas";
+import { homeState } from "@/states/homeState";
 
 export default function ResultPage() {
   const router = useRouter()
-  const [ranks] = assessmentState((state) => ([state.ranks]))
+  const [setNama] = homeState((state) => ([state.setNama]))
+  const [ranks, reset] = assessmentState((state) => ([state.ranks, state.reset]))
   useEffect(() => {
     if (ranks.length < 1) {
+      setNama("")
+      reset()
       router.push("/")
     }
-  }, [])
+  }, [ranks, router, setNama, reset])
 
   return (
     <div className="flex justify-center m-2">
       {/* tengah halaman */}
       <div className="w-[19cm]">
         <div className="flex justify-end space-x-2">
-          <button onClick={() => { router.push("/") }} className="my-1 bg-red-300 p-2 print:hidden">RESET</button>
+          <button onClick={() => { reset(); setNama(""); router.push("/"); }} className="my-1 bg-red-300 p-2 print:hidden">RESET</button>
           <button onClick={() => { window.print() }} className="my-1 bg-blue-300 p-2 print:hidden">PRINT</button>
         </div>
         <div className="print:h-[27.5cm]">
