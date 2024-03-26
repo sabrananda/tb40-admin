@@ -42,7 +42,7 @@ export default function ResultPage() {
           <ColorMean />
         </div>
         <div className="print:h-[27.7cm] print:flex-col print:space-y-10">
-          {ranks.length < 1 ? <></> : <StrongAndWeak />}
+          <StrongAndWeak />
           <Chart />
           {/* <Chart2 /> */}
         </div>
