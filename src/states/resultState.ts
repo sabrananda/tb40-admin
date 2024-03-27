@@ -1,10 +1,21 @@
 import { create } from "zustand";
-import { Bakat, GayaBelajar, Kepribadian, KuatDanLemah } from "./interface";
+import {
+  BahasaHati,
+  Bakat,
+  GayaBelajar,
+  Kepribadian,
+  KuatDanLemah,
+  SifatTercela,
+  UraianBahasaHati,
+  UraianGayaBelajar,
+} from "./interface";
 import { homeState } from "./homeState";
 import { assessmentState } from "./assessmentState";
 import { kepribadian } from "./defaultValue/kepribadian";
 import { bakat } from "./defaultValue/bakat";
 import { gayaBelajar } from "./defaultValue/gayaBelajar";
+import { bahasaHati } from "./defaultValue/bahasaHati";
+import { sifatTercela } from "./defaultValue/sifatTercela";
 
 interface ResultState {
   warna40: (rank: number) => void;
@@ -17,28 +28,107 @@ interface ResultState {
   setBakat: () => void;
   gayaBelajar: GayaBelajar;
   setGayaBelajar: () => void;
+  bahasaHati: BahasaHati;
+  setBahasaHati: () => void;
+  sifatTercela: SifatTercela;
+  setSifatTercela: () => void;
 }
 
 export const resultState = create<ResultState>((set, get) => ({
   kepribadian,
   bakat,
   gayaBelajar,
+  bahasaHati,
+  sifatTercela,
+  setSifatTercela() {
+    const { nama } = homeState.getState();
+    const { ranks, pilar40Array } = assessmentState.getState();
+    set(() => ({
+      sifatTercela: {
+        ...get().sifatTercela,
+        paragraf1: `Karena ${nama} memiliki bakat terkuat ${pilar40Array[
+          ranks[0] - 1
+        ]?.tulisan.toLowerCase()}, maka berpotensi akan muncul  sifat tercela ${pilar40Array[
+          ranks[0] - 1
+        ]?.akibatBerlebihan.tulisan.toLowerCase()}, yaitu ${pilar40Array[
+          ranks[0] - 1
+        ]?.akibatBerlebihan.definisi.toLowerCase()}.`,
+        paragraf2: `${
+          pilar40Array[ranks[0] - 1]?.akibatBerlebihan?.perbaikan
+        } Yaitu dengan cara antara lain ${
+          pilar40Array[
+            pilar40Array.findIndex(
+              (plr) =>
+                plr.namaArab ===
+                pilar40Array[ranks[0] - 1]?.perbaikanBerlebihan[0]
+            )
+          ]?.definisi
+        }`,
+        paragraf3: `Dan karena ${
+          nama == "" ? "fulan" : nama
+        } juga memiliki kelemahan pada sifat ${pilar40Array[39]?.tulisan.toLowerCase()}, yaitu ${
+          nama == "" ? "fulan" : nama
+        } kurang ${
+          pilar40Array[ranks[39] - 1]?.labelDiri
+        }, maka berpotensi akan muncul sifat tercela ${
+          pilar40Array[ranks[39] - 1]?.akibatLalai.tulisan
+        }, yaitu ${pilar40Array[ranks[39] - 1]?.akibatLalai.definisi}`,
+        paragraf4: `${
+          pilar40Array[ranks[39] - 1]?.akibatLalai.perbaikan
+        } Yaitu dengan cara antara lain ${
+          pilar40Array[ranks[39] - 1]?.definisi
+        }.`,
+      },
+    }));
+  },
+  setBahasaHati() {
+    const { nama } = homeState.getState();
+    const { ranks3, pilar3Array } = assessmentState.getState();
+
+    const uraian: UraianBahasaHati[] = [];
+    {
+      ranks3.map((rank3, idx) =>
+        uraian.push({
+          judul: `${idx + 1}. ${pilar3Array[rank3 - 1].bahasaHati}`,
+          deskripsiJudul: `${pilar3Array[rank3 - 1].deskripsiBahasa}`,
+        })
+      );
+    }
+
+    set(() => ({
+      bahasaHati: {
+        ...get().bahasaHati,
+        urutan: `Urutan bahasa hati yang dapat menyentuh hati ${nama} adalah:`,
+        uraian,
+      },
+    }));
+  },
   setGayaBelajar() {
-    const nama = homeState.getState().nama;
+    const { nama } = homeState.getState();
+    const { ranks3, pilar3Array } = assessmentState.getState();
+    const uraian: UraianGayaBelajar[] = [];
+    ranks3.map((rank3, idx) =>
+      uraian.push({
+        judul: `${idx + 1}. ${pilar3Array[rank3 - 1]?.namaArab} / ${
+          pilar3Array[rank3 - 1]?.gayaBelajar
+        }`,
+        deskripsiJudul: `${pilar3Array[rank3 - 1]?.deskripsiGayaBelajar1}`,
+        tempatBelajar: `${pilar3Array[rank3 - 1]?.tempatBelajar}`,
+      })
+    );
     set(() => ({
       gayaBelajar: {
         ...get().gayaBelajar,
         urutan: `Urutan gaya belajar ${nama} adalah:`,
+        uraian,
       },
     }));
   },
   setBakat() {
-    const nama = homeState.getState().nama;
-    const ranks = assessmentState.getState().ranks;
-    const pilar40Array = assessmentState.getState().pilar40Array;
+    const { nama } = homeState.getState();
+    const { pilar40Array, ranks } = assessmentState.getState();
     const kekuatan: KuatDanLemah[] = [];
     const kelemahan: KuatDanLemah[] = [];
-    // console.log(assessmentState.getState().ranks);
     ranks.map((rank, idx) => {
       if (idx < 6) {
         kekuatan.push({
@@ -92,15 +182,17 @@ export const resultState = create<ResultState>((set, get) => ({
     }));
   },
   setKepribadian() {
-    const nama = homeState.getState().nama;
-    const introvertAverage = assessmentState.getState().introvertAverage;
-    const ekstrovertAverage = assessmentState.getState().ekstrovertAverage;
-    const pilar3Array = assessmentState.getState().pilar3Array;
-    const ranks3 = assessmentState.getState().ranks3;
-    const ranks6 = assessmentState.getState().ranks6;
-    const ranks18 = assessmentState.getState().ranks18;
-    const labelDiri = assessmentState.getState().labelDiri;
-    const julukan = assessmentState.getState().julukan;
+    const { nama } = homeState.getState();
+    const {
+      julukan,
+      labelDiri,
+      ranks18,
+      ranks6,
+      ranks3,
+      pilar3Array,
+      ekstrovertAverage,
+      introvertAverage,
+    } = assessmentState.getState();
     set(() => ({
       kepribadian: {
         judul: `Kepribadian ${nama}`,

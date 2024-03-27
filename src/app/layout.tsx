@@ -2,9 +2,9 @@
 import type { Metadata } from "next";
 // import { Inter } from "next/font/google";
 import "./globals.css";
-import Link from "next/link";
+// import Link from "next/link";
 
-import icon from '@/asset/resultImage/logo.png'
+// import icon from '@/asset/resultImage/logo.png'
 // import Link from "next/link";
 // import Router from "./router";
 
@@ -13,7 +13,6 @@ import icon from '@/asset/resultImage/logo.png'
 export const metadata: Metadata = {
   title: "Tafsir Bakat 40",
   description: "",
-  icons: ""
 };
 
 export default function RootLayout({
@@ -28,12 +27,7 @@ export default function RootLayout({
         {/* <Link suppressHydrationWarning={false} href="/logo.ico" rel="icon" /> */}
       </head>
       <body>
-        <div>
-          {/* <Router /> */}
-          <div>
-            {children}
-          </div>
-        </div>
+        {children}
       </body>
     </html>
   );

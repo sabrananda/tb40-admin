@@ -1,12 +1,11 @@
 "use client"
-import { assessmentState } from "@/states/assessmentState"
-import { pilar3Array } from "@/states/defaultValue/pilar3Array"
+
 import { resultState } from "@/states/resultState"
 
 export default function GayaBelajar() {
 
-  const [ranks3] = assessmentState((state) => ([state.ranks3]))
   const [gayaBelajar] = resultState((state) => [state.gayaBelajar])
+
   return (
     <div className="">
       {/* gaya belajar */}
@@ -16,11 +15,24 @@ export default function GayaBelajar() {
           {gayaBelajar.deskripsiJudul}
         </div>
       </div>
-      <div>
+      <div className="mt-2">
         {gayaBelajar.urutan}
       </div>
       <div>
-        {ranks3.map((rank3, idx) => (
+        {gayaBelajar.uraian.map((uraian, idx) => (
+          <div key={idx} className="flex-col space-y-2 mt-3">
+            <div className="font-bold underline">
+              {uraian.judul}
+            </div>
+            <div className="text-justify">
+              {uraian.deskripsiJudul}
+            </div>
+            <div className="text-justify">
+              {uraian.tempatBelajar}
+            </div>
+          </div>
+        ))}
+        {/* {ranks3.map((rank3, idx) => (
           <div key={idx} className="flex-col space-y-2 mt-3">
             <div className="font-bold underline">
               {`${idx + 1}. ${pilar3Array[rank3 - 1]?.namaArab} / ${pilar3Array[rank3 - 1]?.gayaBelajar}`}
@@ -31,7 +43,7 @@ export default function GayaBelajar() {
             <div className="text-justify">
               {`${pilar3Array[rank3 - 1]?.tempatBelajar}`}
             </div>
-          </div>))}
+          </div>))} */}
       </div>
     </div>
   )

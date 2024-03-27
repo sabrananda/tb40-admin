@@ -5,11 +5,18 @@ import { useRouter } from "next/navigation"
 
 export default function AssessmentForm() {
   const router = useRouter()
-  const [setKepribadian, setBakat, setGayaBelajar] = resultState((state) => [state.setKepribadian, state.setBakat, state.setGayaBelajar])
+  const [setKepribadian, setBakat, setGayaBelajar, setBahasaHati, setSifatTercela] = resultState((state) => [state.setKepribadian, state.setBakat, state.setGayaBelajar, state.setBahasaHati, state.setSifatTercela])
   const [pilar40Array, setScore, sortir, reset, ranks18] = assessmentState((state) => [state.pilar40Array, state.setScore, state.sortir, state.reset, state.ranks18])
   function submitHandler(e: any) {
     // e.preventDefault()
-    if (ranks18.length === 0) { sortir(); setKepribadian(); setBakat(); setGayaBelajar() }
+    if (ranks18.length === 0) {
+      sortir();
+      setKepribadian();
+      setBakat();
+      setGayaBelajar();
+      setBahasaHati();
+      setSifatTercela();
+    }
     router.push("/result")
   }
 

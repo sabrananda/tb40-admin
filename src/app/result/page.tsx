@@ -31,19 +31,19 @@ export default function ResultPage() {
       <div className="w-[19cm]">
         <ResultAction />
         <div className="print:h-[27.5cm]">
-          {/* <Identity /> */}
+          <Identity />
         </div>
         <div className="print:h-[27.7cm]">
-          {/* <Result40 /> */}
-          {/* <ColorMean /> */}
+          <Result40 />
+          <ColorMean />
         </div>
         <div className="print:h-[27.7cm] print:flex-col print:space-y-10">
-          {/* <StrongAndWeak /> */}
+          <StrongAndWeak />
           <Chart />
         </div>
         <div className="print:h-[110.8cm] flex-col space-y-10 border p-2">
-          {/* <Kepribadian />
-          <Bakat /> */}
+          <Kepribadian />
+          <Bakat />
         </div>
         <div className="print:h-[27.7cm] flex-col space-y-10 border p-2">
           <GayaBelajar />

@@ -97,4 +97,23 @@ export type GayaBelajar = {
   urutan: string;
   uraian: UraianGayaBelajar[];
 };
+export type UraianBahasaHati = {
+  judul: string;
+  deskripsiJudul: string;
+};
+export type BahasaHati = {
+  judul: string;
+  deskripsiJudul: string;
+  urutan: string;
+  uraian: UraianBahasaHati[];
+};
+export type SifatTercela = {
+  judul: string;
+  deskripsiJudul: string;
+  reference: string;
+  paragraf1: string;
+  paragraf2: string;
+  paragraf3: string;
+  paragraf4: string;
+};
 
