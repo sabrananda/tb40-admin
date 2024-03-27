@@ -1,22 +1,12 @@
-export type Pilar3Array = {
-  id: number;
-  tulisan: string;
-  bacaIndo: string;
-  bacaArab: string;
-  gayaBelajar: string;
-  deskripsiGayaBelajar1: string;
-  deskripsiGayaBelajar2: string;
-  tempatBelajar: string;
-  bahasaHati: string;
-  deskripsiBahasa: string;
-};
+import { Pilar3Array } from "../interface";
 
 export const pilar3Array: Pilar3Array[] = [
   {
     id: 1,
     tulisan: "Al Hawa (الهَوَى)",
+    namaArab: "الهَوَى",
     bacaIndo: "bersemangat",
-    bacaArab: "Al Fuad (الفُؤَاد)",
+    tulisanGayaBelajar: "Al Fuad (الفُؤَاد)",
     gayaBelajar: "bergerak",
     deskripsiGayaBelajar1:
       "Dalam belajar lebih suka bergerak dan menyentuh segala sesuatu yang dijumpai, memiliki koordinasi fisik yang baik, suka menggunakan objek nyata sebagai alat bantu belajar, sering melakukan kegiatan fisik / banyak bergerak, lebih bisa belajar dengan praktek, belajar dengan berjalan-jalan, menggunakan jari untuk menunjuk saat membaca, banyak menggunakan isyarat tubuh, tak bisa duduk tenang untuk waktu yang lama, membuat keputusan berdasarkan perasaan, suka mengetuk-ngetuk dengan pena, menggerakkan jari atau kaki saat mendengarkan, dan suka meluangkan waktu untuk berolah raga dan kegiatan fisik lainnya.",
@@ -31,8 +21,9 @@ export const pilar3Array: Pilar3Array[] = [
   {
     id: 2,
     tulisan: "Al Aql (العَقْل)",
+    namaArab: "العَقْل",
     bacaIndo: "berpikir",
-    bacaArab: "Al Bashar (البَصَر)",
+    tulisanGayaBelajar: "Al Bashar (البَصَر)",
     gayaBelajar: "melihat",
     deskripsiGayaBelajar1:
       "Dalam belajar lebih suka dengan cara melihat, senantiasa berusaha melihat bibir guru yang sedang mengajar, berbicara agak cepat, kadang belepotan, tidak mudah terganggu oleh keributan tetapi mudah terganggu dengan cahaya ruangan yang kurang terang, lebih mudah mengingat apa yang  dilihat dari pada apa yang didengar, lebih suka membaca dari pada dibacakan, pembaca cepat dan tekun, lebih suka membaca mushaf  dari pada mendengar murottal  dalam menghafal Al Qur’an, cenderung menggunakan gerakan tubuh (untuk mengekspresikan dan menggantikan kata-kata) saat mengungkapkan sesuatu, lebih suka peragaan daripada penjelasan lisan.",
@@ -47,8 +38,9 @@ export const pilar3Array: Pilar3Array[] = [
   {
     id: 3,
     tulisan: "Al Qalb (القَلْب)",
+    namaArab: "القَلْب",
     bacaIndo: "berperasaan",
-    bacaArab: "As Sam'u (السَمْع)",
+    tulisanGayaBelajar: "As Sam'u (السَمْع)",
     gayaBelajar: "mendengar",
     deskripsiGayaBelajar1:
       "Dalam belajar lebih suka dengan cara mendengar, saat beraktifitas suka bicara kepada diri sendiri, mudah terganggu oleh suara berisik dan keributan, mudah mengingat apa yang didengar dari pada yang dilihat, senang mengeraskan suara ketika membaca buku atau menghafal, pembicara yang fasih, lebih suka mendengar (audio) dari pada membaca mushaf dalam menghafal Al Qur’an, lebih pandai mengeja dengan suara daripada menuliskannya, dapat mengulangi kembali dan menirukan  suara  dengan nada, irama dan warna suara.",

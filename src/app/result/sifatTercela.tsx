@@ -4,7 +4,7 @@ import { homeState } from "@/states/homeState"
 
 export default function SifatTercela() {
   const [nama] = homeState((state) => [state.nama])
-  const [pilar, ranks] = assessmentState((state) => ([state.pilar, state.ranks]))
+  const [pilar40Array, ranks] = assessmentState((state) => ([state.pilar40Array, state.ranks]))
   return (
     <div>
       {/* judul */}
@@ -20,16 +20,16 @@ export default function SifatTercela() {
       {/* uraian */}
       <div className="flex-col space-y-2 text-justify mt-2">
         <div>
-          {`Karena ${nama == "" ? "fulan" : nama} memiliki bakat terkuat ${pilar[ranks[0] - 1]?.tulisan.toLowerCase()}, maka berpotensi akan muncul  sifat tercela ${pilar[ranks[0] - 1]?.akibatBerlebihan.tulisan.toLowerCase()}, yaitu ${pilar[ranks[0] - 1]?.akibatBerlebihan.definisi.toLowerCase()}.`}
+          {`Karena ${nama == "" ? "fulan" : nama} memiliki bakat terkuat ${pilar40Array[ranks[0] - 1]?.tulisan.toLowerCase()}, maka berpotensi akan muncul  sifat tercela ${pilar40Array[ranks[0] - 1]?.akibatBerlebihan.tulisan.toLowerCase()}, yaitu ${pilar40Array[ranks[0] - 1]?.akibatBerlebihan.definisi.toLowerCase()}.`}
         </div>
         <div>
-          {`${pilar[ranks[0] - 1]?.akibatBerlebihan?.perbaikan} Yaitu dengan cara antara lain ${pilar[pilar.findIndex((plr) => plr.namaArab === pilar[ranks[0] - 1]?.perbaikanBerlebihan[0])]?.definisi}`}
+          {`${pilar40Array[ranks[0] - 1]?.akibatBerlebihan?.perbaikan} Yaitu dengan cara antara lain ${pilar40Array[pilar40Array.findIndex((plr) => plr.namaArab === pilar40Array[ranks[0] - 1]?.perbaikanBerlebihan[0])]?.definisi}`}
         </div>
         <div>
-          {`Dan karena ${nama == "" ? "fulan" : nama} juga memiliki kelemahan pada sifat ${pilar[39]?.tulisan.toLowerCase()}, yaitu ${nama == "" ? "fulan" : nama} kurang ${pilar[ranks[39] - 1]?.labelDiri}, maka berpotensi akan muncul sifat tercela ${pilar[ranks[39] - 1]?.akibatLalai.tulisan}, yaitu ${pilar[ranks[39] - 1]?.akibatLalai.definisi}`}
+          {`Dan karena ${nama == "" ? "fulan" : nama} juga memiliki kelemahan pada sifat ${pilar40Array[39]?.tulisan.toLowerCase()}, yaitu ${nama == "" ? "fulan" : nama} kurang ${pilar40Array[ranks[39] - 1]?.labelDiri}, maka berpotensi akan muncul sifat tercela ${pilar40Array[ranks[39] - 1]?.akibatLalai.tulisan}, yaitu ${pilar40Array[ranks[39] - 1]?.akibatLalai.definisi}`}
         </div>
         <div>
-          {`${pilar[ranks[39] - 1]?.akibatLalai.perbaikan} Yaitu dengan cara antara lain ${pilar[ranks[39] - 1]?.definisi}.`}
+          {`${pilar40Array[ranks[39] - 1]?.akibatLalai.perbaikan} Yaitu dengan cara antara lain ${pilar40Array[ranks[39] - 1]?.definisi}.`}
         </div>
       </div>
     </div>

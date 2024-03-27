@@ -6,7 +6,6 @@ export default function Identity() {
   return (
     <div className="border h-full bg-gradient-to-r from-cyan-500 to-blue-500">
       <div className="grid grid-cols-1 place-content-around h-full ">
-
         <div className="text-center font-bold uppercase text-5xl">
           TAFSIR BAKAT 40
         </div>

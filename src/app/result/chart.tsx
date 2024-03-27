@@ -3,7 +3,7 @@ import { assessmentState } from "@/states/assessmentState"
 
 export default function Chart() {
 
-  const [pilar, ranks] = assessmentState((state) => ([state.pilar, state.ranks]))
+  const [pilar40Array, ranks] = assessmentState((state) => ([state.pilar40Array, state.ranks]))
 
   return (
     <div className="p-2 border-x h-[9cm]">
@@ -17,11 +17,11 @@ export default function Chart() {
 
       <div className="flex justify-around h-[216px]">
         <div className="w-20"></div>
-        {pilar.map((plr, idx) => (
+        {pilar40Array.map((plr, idx) => (
           <div className="relative grid grid-cols-1 content-end h-[100%]" key={idx} >
             <span className={`bg-blue-400 text-xs w-2 h-[${205 - (5 * (ranks.indexOf(plr.id) + 1))}px]`}>
               {/* <span className="relative -top-4 text-center">
-                {pilar[idx].skor}
+                {pilar40[idx].skor}
               </span> */}
             </span>
             <div className="text-xs rotate-90 text-nowrap w-2">{plr.namaIndo}</div>
@@ -70,8 +70,6 @@ export default function Chart() {
         <div className=" bg-blue-400 h-[195px]"></div>
         <div className=" bg-blue-400 h-[200px]"></div>
       </div>
-
-
     </div>
   )
 }

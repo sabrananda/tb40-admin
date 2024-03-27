@@ -1,13 +1,15 @@
 "use client"
 import { assessmentState } from "@/states/assessmentState"
+import { resultState } from "@/states/resultState"
 import { useRouter } from "next/navigation"
 
 export default function AssessmentForm() {
   const router = useRouter()
-  const [pilar, setScore, sortir, reset, ranks18] = assessmentState((state) => [state.pilar, state.setScore, state.sortir, state.reset, state.ranks18])
+  const [setKepribadian, setBakat, setGayaBelajar] = resultState((state) => [state.setKepribadian, state.setBakat, state.setGayaBelajar])
+  const [pilar40Array, setScore, sortir, reset, ranks18] = assessmentState((state) => [state.pilar40Array, state.setScore, state.sortir, state.reset, state.ranks18])
   function submitHandler(e: any) {
     // e.preventDefault()
-    if (ranks18.length === 0) { sortir() }
+    if (ranks18.length === 0) { sortir(); setKepribadian(); setBakat(); setGayaBelajar() }
     router.push("/result")
   }
 
@@ -22,7 +24,7 @@ export default function AssessmentForm() {
         <div className="mb-10 flex justify-end">
           <button className="font-bold bg-blue-200 rounded-sm px-2 py-1 hover:bg-blue-400" onClick={submitHandler}>submit</button>
         </div>
-        {pilar.map((plr, idx) => (
+        {pilar40Array.map((plr, idx) => (
           <div key={idx} className="flex w-full">
             <div className="border p-2 w-10">{plr.id}.</div>
             {/* <div className="border p-2 w-36">{plr.namaIndo}</div> */}

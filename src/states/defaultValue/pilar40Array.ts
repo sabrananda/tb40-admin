@@ -1,4 +1,6 @@
-export const pilarArray = [
+import { Pilar } from "../interface";
+
+export const pilar40Array: Pilar[] = [
   {
     id: 1,
     bacaArab: "‘Adaalah",

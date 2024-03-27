@@ -4,7 +4,7 @@ import kiriAtas from '@/asset/resultImage/kiri_atas.png'
 import kiriTengah from '@/asset/resultImage/kiri_tengah.png'
 import kiriBawah from '@/asset/resultImage/kiri_bawah.png'
 import kananAtas from '@/asset/resultImage/kanan_atas.png'
-import tengahKanan from '@/asset/resultImage/tengah_kanan.png'
+import kananTengah from '@/asset/resultImage/kanan_tengah.png'
 import kananBawah from '@/asset/resultImage/kanan_bawah.png'
 import tengahAtas from '@/asset/resultImage/tengah_atas.png'
 import tengahTengah from '@/asset/resultImage/tengah_tengah.png'
@@ -13,14 +13,9 @@ import { resultState } from '@/states/resultState'
 import { assessmentState } from '@/states/assessmentState'
 
 export default function Result40() {
-  const kiriAtasId: number[] = [13, 16, 18, 40, 4, 25, 0]
-  const kananAtasId: number[] = [35, 9, 22, 24, 7, 27, 19]
-  const kiriTengahId: number[] = [0, 0, 8, 26, 14, 6, 11, 0]
-  const kananTengahId: number[] = [36, 38, 1, 39, 23, 5, 30, 21]
-  const kiriBawahId: number[] = [0, 0, 34, 15, 33, 10, 28, 37]
-  const kananBawahId: number[] = [29, 17, 20, 31, 2, 3, 12, 32]
+
   const [warna40, warna18, warna6, warna3] = resultState((state) => [state.warna40, state.warna18, state.warna6, state.warna3])
-  const [pilar, ranks, ranks18, ranks6, ranks3] = assessmentState((state) => ([state.pilar, state.ranks, state.ranks18, state.ranks6, state.ranks3]))
+  const [pilar40Array, ranks, ranks18, ranks6, ranks3, pilar6Array, pilar3Array] = assessmentState((state) => ([state.pilar40Array, state.ranks, state.ranks18, state.ranks6, state.ranks3, state.pilar6Array, state.pilar3Array]))
 
   return (
     <div className='border'>
@@ -30,12 +25,12 @@ export default function Result40() {
             {/* nafsul ammaroh */}
             <div className="flex border p-2">
               <div className="p-2">
-                <div className="flex-col space-y-1">
-                {kiriAtasId.map((plrId, idx) => (
+              <div className="flex-col space-y-1">
+                {pilar6Array[1 - 1].pilar40Id.map((plrId, idx) => (
                   <div key={idx} className='flex'>
-                    <div>
-                      <div className="w-28 text-right text-xs pr-2">{pilar[plrId - 1]?.namaArab}</div>
-                      <div className="w-28 text-right text-xs pr-2">{pilar[plrId - 1]?.namaIndo}</div>
+                    <div className=''>
+                      <div className="w-28 text-right text-xs pr-2">{pilar40Array[plrId - 1]?.namaArab}</div>
+                      <div className="w-28 text-right text-xs pr-2">{pilar40Array[plrId - 1]?.namaIndo}</div>
                     </div>
                     <div className={`w-20 h-8 border ${warna40(ranks.indexOf(plrId) + 1)}`}></div>
                   </div>
@@ -43,7 +38,7 @@ export default function Result40() {
                 </div>
               </div>
               <div className="flex-col py-2 space-y-1">
-                <div className={`${warna18(ranks18.indexOf(1) + 1)} flex-col space-y-1 w-3`}>
+              <div className={`${warna18(ranks18.indexOf(1) + 1)} flex-col space-y-1 w-3`}>
                   <div className="h-8"></div>
                   <div className="h-8"></div>
                 </div>
@@ -64,11 +59,11 @@ export default function Result40() {
             <div className="flex border p-2">
               <div className="p-2">
                 <div className="flex-col space-y-1">
-                {kiriTengahId.map((plrId, idx) => (
+                {pilar6Array[2 - 1].pilar40Id.map((plrId, idx) => (
                   <div key={idx} className='flex'>
                     <div>
-                      <div className="w-28 text-right text-xs pr-2">{pilar[plrId - 1]?.namaArab}</div>
-                      <div className="w-28 text-right text-xs pr-2">{pilar[plrId - 1]?.namaIndo}</div>
+                      <div className="w-28 text-right text-xs pr-2">{pilar40Array[plrId - 1]?.namaArab}</div>
+                      <div className="w-28 text-right text-xs pr-2">{pilar40Array[plrId - 1]?.namaIndo}</div>
                     </div>
                     <div className={`w-20 h-8 border ${warna40(ranks.indexOf(plrId) + 1)}`}></div>
                   </div>
@@ -79,8 +74,7 @@ export default function Result40() {
                 <div className="flex-col space-y-1 w-3">
                   <div className="h-8"></div>
                   <div className="h-8"></div>
-                </div>
-
+              </div>
                 <div className={`${warna18(ranks18.indexOf(4) + 1)} flex-col space-y-1 w-3`}>
                   <div className="h-8"></div>
                   <div className="h-8"></div>
@@ -98,11 +92,11 @@ export default function Result40() {
             <div className="flex border p-2">
               <div className="p-2">
                 <div className="flex-col space-y-1">
-                {kiriBawahId.map((plrId, idx) => (
+                {pilar6Array[3 - 1].pilar40Id.map((plrId, idx) => (
                   <div key={idx} className='flex'>
                     <div>
-                      <div className="w-28 text-right text-xs pr-2">{pilar[plrId - 1]?.namaArab}</div>
-                      <div className="w-28 text-right text-xs pr-2">{pilar[plrId - 1]?.namaIndo}</div>
+                      <div className="w-28 text-right text-xs pr-2">{pilar40Array[plrId - 1]?.namaArab}</div>
+                      <div className="w-28 text-right text-xs pr-2">{pilar40Array[plrId - 1]?.namaIndo}</div>
                     </div>
                     <div className={`w-20 h-8 border ${warna40(ranks.indexOf(plrId) + 1)}`}></div>
                   </div>
@@ -134,10 +128,10 @@ export default function Result40() {
           <div className="grid grid-cols-1">
             {/* tengah-atas */}
             <div className="flex-col space-y-5">
-              <div className='flex  text-s text-center'>
-                <div className="w-20">الحَمَاسَة</div>
+              <div className='flex text-s text-center'>
+                <div className="w-20">{pilar6Array[1 - 1]?.namaArab}</div>
                 <div className="w-20"></div>
-                <div className="w-20">التَّأْثِيْر</div>
+                <div className="w-20">{pilar6Array[4 - 1]?.namaArab}</div>
               </div>
               <div className='flex'>
                 <div className="flex justify-center w-20">
@@ -174,7 +168,7 @@ export default function Result40() {
                   <div className={`w-8 h-8 border ${warna6(ranks6.indexOf(1) + 1)}`}></div>
                 </div>
                 <div className="flex justify-center w-20">
-                  <div className={`${warna3(ranks3.indexOf(1) + 1)} text-center border h-8 w-16 p-[3px]`}>الهَوَى</div>
+                  <div className={`${warna3(ranks3.indexOf(1) + 1)} text-center border h-8 w-16 p-[3px]`}>{pilar3Array[1 - 1].namaArab}</div>
                 </div>
                 <div className="flex justify-center w-20">
                   <div className={`w-8 h-8 border ${warna6(ranks6.indexOf(4) + 1)}`}></div>
@@ -184,9 +178,9 @@ export default function Result40() {
             {/* tengah-tengah */}
             <div className="flex-col space-y-5">
               <div className='flex text-s text-center'>
-                <div className="w-20">التَّفْكِيْر</div>
+                <div className="w-20">{pilar6Array[2 - 1]?.namaArab}</div>
                 <div className="w-20"></div>
-                <div className="w-20">التَّعَامُل</div>
+                <div className="w-20">{pilar6Array[5 - 1]?.namaArab}</div>
               </div>
               <div className='flex'>
                 <div className="flex justify-center w-20">
@@ -210,7 +204,7 @@ export default function Result40() {
                 </div>
                 <div className="flex justify-center w-20">
                   <Image
-                    src={tengahKanan}
+                    src={kananTengah}
                     style={{
                       width: '80%',
                       height: 'auto',
@@ -223,7 +217,7 @@ export default function Result40() {
                   <div className={`w-8 h-8 border ${warna6(ranks6.indexOf(2) + 1)}`}></div>
                 </div>
                 <div className="flex justify-center w-20">
-                  <div className={`${warna3(ranks3.indexOf(2) + 1)} text-center border h-8 w-16 p-[3px]`}>العَقْل</div></div>
+                  <div className={`${warna3(ranks3.indexOf(2) + 1)} text-center border h-8 w-16 p-[3px]`}>{pilar3Array[2 - 1].namaArab}</div></div>
                 <div className="flex justify-center w-20">
                   <div className={`w-8 h-8 border ${warna6(ranks6.indexOf(5) + 1)}`}></div>
                 </div>
@@ -232,9 +226,9 @@ export default function Result40() {
             {/* tengah-bawah */}
             <div className="flex-col space-y-5">
               <div className='flex text-s text-center'>
-                <div className="w-20">الشُعُوْر</div>
+                <div className="w-20">{pilar6Array[3 - 1]?.namaArab}</div>
                 <div className="w-20"></div>
-                <div className="w-20">الخِدْمَة</div>
+                <div className="w-20">{pilar6Array[6 - 1]?.namaArab}</div>
               </div>
               <div className='flex'>
                 <div className="flex justify-center w-20">
@@ -259,7 +253,10 @@ export default function Result40() {
                 <div className="flex justify-center w-20">
                   <Image
                     src={kananBawah}
-                    width={60}
+                    style={{
+                      width: '80%',
+                      height: 'auto',
+                    }}
                     alt="khidmah" />
                 </div>
               </div>
@@ -268,7 +265,7 @@ export default function Result40() {
                   <div className={`w-8 h-8 border ${warna6(ranks6.indexOf(3) + 1)}`}></div>
                 </div>
                 <div className="flex justify-center w-20">
-                  <div className={`${warna3(ranks3.indexOf(3) + 1)} text-center border h-8 w-16 p-[3px]`}>القَلْب</div></div>
+                  <div className={`${warna3(ranks3.indexOf(3) + 1)} text-center border h-8 w-16 p-[3px]`}>{pilar3Array[3 - 1].namaArab}</div></div>
                 <div className="flex justify-center w-20">
                   <div className={`w-8 h-8 border ${warna6(ranks6.indexOf(6) + 1)}`}></div>
                 </div>
@@ -297,12 +294,12 @@ export default function Result40() {
               </div>
               <div className="p-2">
                 <div className="flex-col space-y-1">
-                {kananAtasId.map((plrId, idx) => (
+                {pilar6Array[4 - 1].pilar40Id.map((plrId, idx) => (
                   <div key={idx} className='flex'>
                     <div className={`w-20 h-8 border ${warna40(ranks.indexOf(plrId) + 1)}`}></div>
                     <div>
-                      <div className="w-28 text-xs pl-2">{pilar[plrId - 1]?.namaArab}</div>
-                      <div className="w-28 text-xs pl-2">{pilar[plrId - 1]?.namaIndo}</div>
+                      <div className="w-28 text-xs pl-2">{pilar40Array[plrId - 1]?.namaArab}</div>
+                      <div className="w-28 text-xs pl-2">{pilar40Array[plrId - 1]?.namaIndo}</div>
                     </div>
                   </div>
                 ))}
@@ -329,12 +326,12 @@ export default function Result40() {
               </div>
               <div className="p-2">
                 <div className="flex-col space-y-1">
-                {kananTengahId.map((plrId, idx) => (
+                {pilar6Array[5 - 1].pilar40Id.map((plrId, idx) => (
                   <div key={idx} className='flex'>
                     <div className={`w-20 h-8 border ${warna40(ranks.indexOf(plrId) + 1)}`}></div>
                     <div>
-                      <div className="w-28 text-xs pl-2">{pilar[plrId - 1]?.namaArab}</div>
-                      <div className="w-28 text-xs pl-2">{pilar[plrId - 1]?.namaIndo}</div>
+                      <div className="w-28 text-xs pl-2">{pilar40Array[plrId - 1]?.namaArab}</div>
+                      <div className="w-28 text-xs pl-2">{pilar40Array[plrId - 1]?.namaIndo}</div>
                     </div>
                     </div>
                 ))}
@@ -361,12 +358,12 @@ export default function Result40() {
               </div>
               <div className="p-2">
                 <div className="flex-col space-y-1">
-                {kananBawahId.map((plrId, idx) => (
+                {pilar6Array[6 - 1].pilar40Id.map((plrId, idx) => (
                   <div key={idx} className='flex'>
                     <div className={`w-20 h-8 border ${warna40(ranks.indexOf(plrId) + 1)}`}></div>
                     <div>
-                      <div className="w-28 text-xs pl-2">{pilar[plrId - 1]?.namaArab}</div>
-                      <div className="w-28 text-xs pl-2">{pilar[plrId - 1]?.namaIndo}</div>
+                      <div className="w-28 text-xs pl-2">{pilar40Array[plrId - 1]?.namaArab}</div>
+                      <div className="w-28 text-xs pl-2">{pilar40Array[plrId - 1]?.namaIndo}</div>
                     </div>
                   </div>
                 ))}

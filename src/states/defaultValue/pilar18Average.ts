@@ -1,4 +1,4 @@
-export const pilar18 = [
+export const pilar18Average = [
   { id: 1, average: 0 },
   { id: 2, average: 0 },
   { id: 3, average: 0 },
