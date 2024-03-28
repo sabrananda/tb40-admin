@@ -22,8 +22,6 @@ export default function AssessmentForm() {
 
   return (
     <div>
-
-
       <div className="mb-10 flex justify-end">
         {/* <button className="font-bold bg-blue-200 rounded-sm px-2 py-1 hover:bg-blue-400" onClick={reset}>reset</button> */}
       </div>
