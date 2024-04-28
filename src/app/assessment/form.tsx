@@ -25,7 +25,7 @@ export default function Form() {
     };
     fetchData();
     // console.log(data);
-  }, []);
+  }, [setPernyataan]);
   return (
     <div className="flex justify-center w-full">
       <div className="justify-center w-[21cm] text-slate-700 ">
