@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { SkorRank } from "./interface";
-import { FetchHandler } from "./utils/fetchHandler";
+import { FetchHandler } from "../utils/fetchHandler";
 import { homeState } from "./homeState";
 import { ResultPage, resultPageStates } from "./resultPageStates";
 

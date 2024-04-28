@@ -9,7 +9,6 @@ import kananBawah from "@/asset/resultImage/kanan_bawah.png";
 import tengahAtas from "@/asset/resultImage/tengah_atas.png";
 import tengahTengah from "@/asset/resultImage/tengah_tengah.png";
 import tengahBawah from "@/asset/resultImage/tengah_bawah.png";
-import { assessmentState } from "@/states/assessmentState";
 import { resultPageStates } from "@/states/resultPageStates";
 
 export default function Result40() {
@@ -34,12 +33,6 @@ export default function Result40() {
     state.bakat6,
     state.bakat3,
     state.ranks40,
-    state.ranks18,
-    state.ranks6,
-    state.ranks3,
-  ]);
-  const [] = assessmentState((state) => [
-    state.ranks,
     state.ranks18,
     state.ranks6,
     state.ranks3,

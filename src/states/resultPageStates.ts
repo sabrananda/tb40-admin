@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { FetchHandler } from "./utils/fetchHandler";
+import { FetchHandler } from "../utils/fetchHandler";
 interface ResultPageStates {
   bakat3: { id: number; arab: string }[];
   bakat6: { id: number; arab: string; bakat40_id: number[] }[];

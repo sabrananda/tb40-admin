@@ -18,7 +18,9 @@ export default function GayaBelajar() {
       <div>
         {gayaBelajar.uraian.map((uraian, idx) => (
           <div key={idx} className="flex-col space-y-2 mt-3">
-            <div className="font-bold underline">{uraian.judul}</div>
+            <div className="font-bold underline">{`${idx + 1}. ${
+              uraian.judul
+            }`}</div>
             <div className="text-justify">{uraian.deskripsiGayaBelajar1}</div>
             <div className="text-justify">{uraian.tempatBelajar}</div>
           </div>

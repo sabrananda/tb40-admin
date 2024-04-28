@@ -17,7 +17,9 @@ export default function BahasaHati() {
       <div className="">
         {bahasaHati.uraian.map((uraian, idx) => (
           <div key={idx} className="">
-            <div className="underline mt-2 font-bold">{uraian.judul}</div>
+            <div className="underline mt-2 font-bold">{`${idx + 1}. ${
+              uraian.judul
+            }`}</div>
             <div className="text-justify">{uraian.deskripsiJudul}</div>
           </div>
         ))}
