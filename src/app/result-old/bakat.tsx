@@ -1,16 +1,15 @@
-"use client";
+"use client"
 
-import { resultPageStates } from "@/states/resultPageStates";
+import { resultState } from "@/states/resultState"
 
 export default function Bakat() {
-  const [bakat] = resultPageStates((state) => [state.bakat]);
+
+  const [bakat] = resultState((state) => ([state.bakat]))
 
   return (
     <div>
       <div className="border">
-        <div className="text-lg text-center bg-green-500 font-bold text-white">
-          {bakat.judul}
-        </div>
+        <div className="text-lg text-center bg-green-500 font-bold text-white">{bakat.judul}</div>
         <div className="text-center">{bakat.deskripsiJudul}</div>
       </div>
       {/* bakat kekuatan */}
@@ -19,10 +18,18 @@ export default function Bakat() {
       </div>
       {bakat.bakatKekuatan.map((arr, idx) => (
         <div key={idx} className="flex-col space-y-1 mt-2">
-          <div className="font-bold underline">{arr.judul}</div>
-          <div className="text-justify">{arr.deskripsiJudul}</div>
-          <div className="text-justify">{arr.profesi}</div>
-          <div className="text-justify">{arr.jurusan}</div>
+          <div className="font-bold underline">
+            {arr.judul}
+          </div>
+          <div className="text-justify">
+            {arr.deskripsiJudul}
+          </div>
+          <div className="text-justify">
+            {arr.profesi}
+          </div>
+          <div className="text-justify">
+            {arr.jurusan}
+          </div>
         </div>
       ))}
       {/* {ranks.map((rank, idx) => {
@@ -44,16 +51,24 @@ export default function Bakat() {
           </div>)
       }
     })} */}
-      {/* bakat kelemahan */}
+    {/* bakat kelemahan */}
       <div className="mt-2 px-2 w-fit bg-slate-500 font-bold text-white uppercase">
         {bakat.judulKelemahan}
       </div>
       {bakat.bakatKelemahan.map((arr, idx) => (
         <div key={idx} className="flex-col space-y-1 mt-2">
-          <div className="font-bold underline">{arr.judul}</div>
-          <div className="text-justify">{arr.deskripsiJudul}</div>
-          <div className="text-justify">{arr.profesi}</div>
-          <div className="text-justify">{arr.jurusan}</div>
+          <div className="font-bold underline">
+            {arr.judul}
+          </div>
+          <div className="text-justify">
+            {arr.deskripsiJudul}
+          </div>
+          <div className="text-justify">
+            {arr.profesi}
+          </div>
+          <div className="text-justify">
+            {arr.jurusan}
+          </div>
         </div>
       ))}
       {/* {ranks.map((rank, idx) => {
@@ -75,6 +90,6 @@ export default function Bakat() {
           </div>)
       }
     }).reverse()} */}
-    </div>
-  );
+  </div>
+  )
 }

@@ -6,6 +6,7 @@ import {
   Kepribadian,
   KuatDanLemah,
   SifatTercela,
+  SkorRank,
   UraianBahasaHati,
   UraianGayaBelajar,
 } from "./interface";
@@ -16,6 +17,7 @@ import { bakat } from "./defaultValue/bakat";
 import { gayaBelajar } from "./defaultValue/gayaBelajar";
 import { bahasaHati } from "./defaultValue/bahasaHati";
 import { sifatTercela } from "./defaultValue/sifatTercela";
+import { FetchHandler } from "./utils/fetchHandler";
 
 interface ResultState {
   warna40: (rank: number) => void;

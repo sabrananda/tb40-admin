@@ -9,22 +9,21 @@ import Bakat from "./bakat";
 import BahasaHati from "./bahasaHati";
 import GayaBelajar from "./gayaBelajar";
 import SifatTercela from "./sifatTercela";
+import { assessmentState } from "@/states/assessmentState";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { homeState } from "@/states/homeState";
 import ResultAction from "./resultAction";
-import { resultPageStates } from "@/states/resultPageStates";
 
 export default function ResultPage() {
   const router = useRouter();
   const [setNama] = homeState((state) => [state.setNama]);
-  const [ranks40] = resultPageStates((state) => [state.ranks40]);
-
+  const [ranks, reset] = assessmentState((state) => [state.ranks, state.reset]);
   useEffect(() => {
-    if (ranks40.length < 1) {
+    if (ranks.length < 1) {
       router.push("/");
     }
-  }, [ranks40, router, setNama]);
+  }, [ranks, router, setNama, reset]);
 
   return (
     <div className="flex justify-center m-2">

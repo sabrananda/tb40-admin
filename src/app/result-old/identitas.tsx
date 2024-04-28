@@ -1,8 +1,8 @@
-"use client";
-import { resultPageStates } from "@/states/resultPageStates";
+"use client"
+import { homeState } from "@/states/homeState"
 
 export default function Identity() {
-  const [nama] = resultPageStates((state) => [state.identitas.nama]);
+  const [nama] = homeState((state) => [state.nama])
   return (
     <div className="border h-full bg-gradient-to-r from-cyan-500 to-blue-500">
       <div className="grid grid-cols-1 place-content-around h-full ">
@@ -17,5 +17,5 @@ export default function Identity() {
         </div>
       </div>
     </div>
-  );
+  )
 }

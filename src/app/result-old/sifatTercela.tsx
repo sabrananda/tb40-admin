@@ -1,28 +1,37 @@
-"use client";
+"use client"
 
-import { resultPageStates } from "@/states/resultPageStates";
+import { resultState } from "@/states/resultState"
 
 export default function SifatTercela() {
-  const [sifatTercela] = resultPageStates((state) => [
-    state.potensiSifatTercela,
-  ]);
+
+  const [sifatTercela] = resultState((state) => ([state.sifatTercela]))
 
   return (
     <div>
       {/* judul */}
       <div className="flex-col space-y-2 border">
-        <div className="text-center border-b text-lg bg-slate-600 font-bold text-white uppercase">
-          {sifatTercela.judul}
+        <div className="text-center border-b text-lg bg-slate-600 font-bold text-white uppercase">{sifatTercela.judul}</div>
+        <div className="text-center italic">
+          {sifatTercela.deskripsiJudul}
         </div>
-        <div className="text-center italic">{sifatTercela.deskripsiJudul}</div>
-        <div className="text-center text-xs">{sifatTercela.refernsi}</div>
+        <div className="text-center text-xs">
+          {sifatTercela.reference}
+        </div>
       </div>
       {/* uraian */}
       <div className="flex-col space-y-2 text-justify mt-2">
-        <div>{sifatTercela.paragraf1}</div>
-        <div>{sifatTercela.paragraf2}</div>
-        <div>{sifatTercela.paragraf3}</div>
-        <div>{sifatTercela.paragraf4}</div>
+        <div>
+          {sifatTercela.paragraf1}
+        </div>
+        <div>
+          {sifatTercela.paragraf2}
+        </div>
+        <div>
+          {sifatTercela.paragraf3}
+        </div>
+        <div>
+          {sifatTercela.paragraf4}
+        </div>
         {/* <div>
           {`Karena ${nama == "" ? "fulan" : nama} memiliki bakat terkuat ${pilar40Array[ranks[0] - 1]?.tulisan.toLowerCase()}, maka berpotensi akan muncul  sifat tercela ${pilar40Array[ranks[0] - 1]?.akibatBerlebihan.tulisan.toLowerCase()}, yaitu ${pilar40Array[ranks[0] - 1]?.akibatBerlebihan.definisi.toLowerCase()}.`}
         </div>
@@ -37,5 +46,5 @@ export default function SifatTercela() {
         </div> */}
       </div>
     </div>
-  );
+  )
 }

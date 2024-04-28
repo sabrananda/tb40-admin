@@ -1,31 +1,57 @@
 "use client";
-import { assessmentPageState } from "@/states/assessmentPageStates";
+import { assessmentState } from "@/states/assessmentState";
+import { resultState } from "@/states/resultState";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
 
 export default function Form() {
   const router = useRouter();
-  const [setScore, postAssessment, setPernyataan, pernyataanArray] =
-    assessmentPageState((state) => [
+  const [
+    setKepribadian,
+    setBakat,
+    setGayaBelajar,
+    setBahasaHati,
+    setSifatTercela,
+  ] = resultState((state) => [
+    state.setKepribadian,
+    state.setBakat,
+    state.setGayaBelajar,
+    state.setBahasaHati,
+    state.setSifatTercela,
+  ]);
+  const [pilar40Array, setScore, sortir, reset, ranks18, postAssessment] =
+    assessmentState((state) => [
+      state.pilar40Array,
       state.setScore,
+      state.sortir,
+      state.reset,
+      state.ranks18,
       state.postAssessment,
-      state.setPernyataan,
-      state.pernyataanArray,
     ]);
-  async function submitHandler() {
-    const route = await postAssessment();
-    // console.log(route);
-    if (route) {
-      router.push("/result");
+  function submitHandler(e: any) {
+    if (ranks18.length === 0) {
+      //   postAssessment();
+      sortir();
+      setKepribadian();
+      setBakat();
+      setGayaBelajar();
+      setBahasaHati();
+      setSifatTercela();
     }
+    const skorArray: number[] = [];
+    for (let i = 0; i < pilar40Array.length; i++) {
+      // console.log(skorArray.findIndex((skor) => {
+      //   skor < pilar40Array[i].skor
+      // }))
+      skorArray.push(pilar40Array[i].skor);
+      // if (skorArray.includes(pilar40Array[i].skor)) {
+      //   alert("tidak boleh ada angka yang sama");
+      //   break;
+      // } else {
+      // }
+    }
+    router.push("/result");
   }
-  useEffect(() => {
-    const fetchData = async () => {
-      return await setPernyataan();
-    };
-    fetchData();
-    // console.log(data);
-  }, []);
+
   return (
     <div className="flex justify-center w-full">
       <div className="justify-center w-[21cm] text-slate-700 ">
@@ -43,7 +69,7 @@ export default function Form() {
               </button>
             </div>
           </div>
-          {pernyataanArray.map((plr, idx) => (
+          {pilar40Array.map((plr, idx) => (
             <div
               key={idx}
               className="flex border-b hover:bg-gray-200 cursor-pointer"
@@ -64,7 +90,12 @@ export default function Form() {
                       max="100"
                       className="w-full h-2 bg-gray-300 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
                       onChange={(e) => {
-                        setScore(Number(e.target.value), plr.id);
+                        let skor = Number(e.target.value);
+                        if (skor <= 100 && skor >= 0) {
+                          setScore(skor, plr.id);
+                        } else {
+                          alert("angka harus antara 0 - 100");
+                        }
                       }}
                     />
                     <span

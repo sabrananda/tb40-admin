@@ -3,7 +3,13 @@ import { pilar40Array } from "./defaultValue/pilar40Array";
 import { pilar18Average } from "./defaultValue/pilar18Average";
 import { pilar6Average } from "./defaultValue/pilar6Average";
 import { pilar3Average } from "./defaultValue/pilar3Average";
-import { Pilar, Pilar3Array, Pilar6Array, PilarAverage } from "./interface";
+import {
+  Pilar,
+  Pilar3Array,
+  Pilar6Array,
+  PilarAverage,
+  SkorRank,
+} from "./interface";
 import { pilar40Handler } from "./handler/pilar40Handler";
 import { pilar18Handler } from "./handler/pilar18Handler";
 import { pilar6Handler } from "./handler/pilar6Handler";
@@ -16,6 +22,8 @@ import { labelDIriHandler } from "./handler/labelDiriHandler";
 import { julukanHandler } from "./handler/julukanHandler";
 import { pilar6Array } from "./defaultValue/pilar6Array";
 import { pilar3Array } from "./defaultValue/pilar3Array";
+import { FetchHandler } from "./utils/fetchHandler";
+import { homeState } from "./homeState";
 
 interface AssessmentState {
   ranks: number[];
@@ -36,8 +44,16 @@ interface AssessmentState {
   reset: () => void;
   introvertAverage: number;
   ekstrovertAverage: number;
+  postAssessment: () => Promise<boolean>;
+  pernyataanArray: PernyataanArray[];
+  setPernyataan: () => Promise<void>;
+  bakat40Ranks: number[];
 }
-
+type PernyataanArray = {
+  id: number;
+  pernyataan: string;
+  skor: number;
+};
 export const assessmentState = create<AssessmentState>((set, get) => ({
   ranks: [],
   pilar40Array,
@@ -56,10 +72,12 @@ export const assessmentState = create<AssessmentState>((set, get) => ({
   setScore(score, id) {
     const newArr = get().pilar40Array;
     newArr[id - 1].skor = score;
+    const pernyataanArray = get().pernyataanArray;
+    pernyataanArray[id - 1].skor = score;
     set(() => ({ pilar40Array: newArr }));
+    set(() => ({ pernyataanArray }));
   },
   sortir() {
-    // console.log(get().ranks3);
     set(() => ({
       ranks: pilar40Handler(pilar40Array),
       ranks18: pilar18Handler(pilar18Average, pilar40Array),
@@ -73,7 +91,6 @@ export const assessmentState = create<AssessmentState>((set, get) => ({
     }));
     set(() => ({ labelDiri: labelDIriHandler(pilar40Array, get().ranks) }));
     set(() => ({ julukan: julukanHandler(get().ranks6) }));
-    // console.log(get().ranks3);
   },
   reset() {
     set(() => ({ ranks: [], ranks18: [], ranks6: [], ranks3: [] }));
@@ -81,4 +98,37 @@ export const assessmentState = create<AssessmentState>((set, get) => ({
       plrArr.skor = 0;
     });
   },
+  async postAssessment() {
+    const skor40: SkorRank[] = [];
+    get().pernyataanArray.map((plrArr) => {
+      skor40.push({ skor: plrArr.skor, id: plrArr.id });
+    });
+    try {
+      const data = await FetchHandler({
+        route: "/result",
+        method: "POST",
+        body: JSON.stringify({ nama: homeState.getState().nama, skor40 }),
+      });
+      const bakat40Ranks = await data.json();
+      set(() => ({ bakat40Ranks }));
+      console.log(bakat40Ranks);
+      return true;
+    } catch (error) {
+      console.log(error);
+      return false;
+    }
+  },
+  pernyataanArray: [],
+  async setPernyataan() {
+    const data = await FetchHandler({
+      route: "/bakat40/pernyataan",
+      method: "GET",
+    });
+    const pernyataanArray: PernyataanArray[] = await data.json();
+    pernyataanArray.map((pernyataan: PernyataanArray, idx: number) => {
+      pernyataanArray[idx].skor = 0;
+    });
+    set(() => ({ pernyataanArray }));
+  },
+  bakat40Ranks: [],
 }));

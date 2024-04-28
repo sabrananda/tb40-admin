@@ -1,7 +1,8 @@
 // "use client"
 import type { Metadata } from "next";
-// import { Inter } from "next/font/google";
 import "./globals.css";
+import Navbar from "./navbar";
+// import { Inter } from "next/font/google";
 // import Link from "next/link";
 
 // import icon from '@/asset/resultImage/logo.png'
@@ -27,6 +28,7 @@ export default function RootLayout({
         {/* <Link suppressHydrationWarning={false} href="/logo.ico" rel="icon" /> */}
       </head>
       <body>
+        {/* <Navbar /> */}
         {children}
       </body>
     </html>
