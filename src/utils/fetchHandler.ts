@@ -26,11 +26,9 @@ export async function FetchHandler(params: FetchHandlerDto): Promise<Response> {
         // Authorization: `Bearer ${useAuthStates.getState().access_token}`,
         Authorization: `Bearer`,
       },
-      mode: "cors",
     });
     return response;
   }
-  //   tes
 
   async function FetchPostHandler(
     route: string,
@@ -44,7 +42,7 @@ export async function FetchHandler(params: FetchHandlerDto): Promise<Response> {
         "Content-Type": "application/json",
       },
       body,
-      mode: "no-cors",
+      //   mode: "no-cors",
     });
     return response;
   }
@@ -59,7 +57,7 @@ export async function FetchHandler(params: FetchHandlerDto): Promise<Response> {
         Authorization: `Bearer `,
         // Authorization: `Bearer ${useAuthStates.getState().access_token}`,
       },
-      mode: "no-cors",
+      //   mode: "no-cors",
     });
     console.log(url.v1 + route + "?" + query);
     return response;
