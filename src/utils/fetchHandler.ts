@@ -22,10 +22,10 @@ export async function FetchHandler(params: FetchHandlerDto): Promise<Response> {
 
   async function FetchGetHandler(route: string): Promise<Response> {
     const response: Response = await fetch(url.v1 + route, {
-      headers: {
-        // Authorization: `Bearer ${useAuthStates.getState().access_token}`,
-        Authorization: `Bearer`,
-      },
+      //   headers: {
+      //     // Authorization: `Bearer ${useAuthStates.getState().access_token}`,
+      //     Authorization: `Bearer`,
+      //   },
     });
     return response;
   }
@@ -37,7 +37,7 @@ export async function FetchHandler(params: FetchHandlerDto): Promise<Response> {
     const response: Response = await fetch(url.v1 + route, {
       method: "POST",
       headers: {
-        Authorization: `Bearer `,
+        // Authorization: `Bearer `,
         // Authorization: `Bearer ${useAuthStates.getState().access_token}`,
         "Content-Type": "application/json",
       },
@@ -53,10 +53,10 @@ export async function FetchHandler(params: FetchHandlerDto): Promise<Response> {
   ): Promise<Response> {
     const response: Response = await fetch(url.v1 + route + "?" + query, {
       method: "DELETE",
-      headers: {
-        Authorization: `Bearer `,
-        // Authorization: `Bearer ${useAuthStates.getState().access_token}`,
-      },
+      //   headers: {
+      //     Authorization: `Bearer `,
+      //     // Authorization: `Bearer ${useAuthStates.getState().access_token}`,
+      //   },
       //   mode: "no-cors",
     });
     console.log(url.v1 + route + "?" + query);
