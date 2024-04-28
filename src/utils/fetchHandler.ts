@@ -26,7 +26,7 @@ export async function FetchHandler(params: FetchHandlerDto): Promise<Response> {
         // Authorization: `Bearer ${useAuthStates.getState().access_token}`,
         Authorization: `Bearer`,
       },
-      mode: "no-cors",
+      mode: "cors",
     });
     return response;
   }
