@@ -27,6 +27,8 @@ export async function FetchHandler(params: FetchHandlerDto): Promise<Response> {
         // Authorization: `Bearer ${useAuthStates.getState().access_token}`,
         Authorization: `Bearer`,
       },
+      mode: "cors",
+      credentials: "include",
     });
     return response;
   }
@@ -41,6 +43,8 @@ export async function FetchHandler(params: FetchHandlerDto): Promise<Response> {
         // Authorization: `Bearer `,
         "Content-Type": "application/json",
       },
+      mode: "cors",
+      credentials: "include",
       body,
     });
     return response;
