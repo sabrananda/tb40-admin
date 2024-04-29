@@ -84,10 +84,14 @@ export const assessmentPageState = create<AssessmentState>((set, get) => ({
   },
   pernyataanArray: [],
   async setPernyataan() {
-    const data = await FetchHandler({
-      route: "/bakat40/pernyataan",
-      method: "GET",
-    });
+    const data = await fetch(
+      "https://tb40-server.vercel.app/v1/bakat40/pernyataan",
+      { credentials: "include" }
+    );
+    // const data = await FetchHandler({
+    //   route: "/bakat40/pernyataan",
+    //   method: "GET",
+    // });
 
     const pernyataanArray: PernyataanArray[] = await data.json();
     pernyataanArray.map((pernyataan: PernyataanArray, idx: number) => {
