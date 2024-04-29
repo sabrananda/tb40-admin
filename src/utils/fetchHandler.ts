@@ -5,10 +5,11 @@ type FetchHandlerDto = {
   query?: string;
 };
 export async function FetchHandler(params: FetchHandlerDto): Promise<Response> {
-  const url = {
-    v1: process.env.NEXT_PUBLIC_API_V1_URL ?? "",
-    default: process.env.NEXT_PUBLIC_API_URL ?? "",
-  };
+  const url =
+    process.env.NODE_ENV === "production"
+      ? process.env.NEXT_PUBLIC_API_V1_URL_PROD
+      : process.env.NEXT_PUBLIC_API_V1_URL_DEV;
+
   switch (params.method) {
     case "POST":
       return await FetchPostHandler(params.route, params.body);
@@ -21,11 +22,11 @@ export async function FetchHandler(params: FetchHandlerDto): Promise<Response> {
   }
 
   async function FetchGetHandler(route: string): Promise<Response> {
-    const response: Response = await fetch(url.v1 + route, {
-      //   headers: {
-      //     // Authorization: `Bearer ${useAuthStates.getState().access_token}`,
-      //     Authorization: `Bearer`,
-      //   },
+    const response: Response = await fetch(url + route, {
+      headers: {
+        // Authorization: `Bearer ${useAuthStates.getState().access_token}`,
+        Authorization: `Bearer`,
+      },
     });
     return response;
   }
@@ -34,15 +35,13 @@ export async function FetchHandler(params: FetchHandlerDto): Promise<Response> {
     route: string,
     body: BodyInit | undefined
   ): Promise<Response> {
-    const response: Response = await fetch(url.v1 + route, {
+    const response: Response = await fetch(url + route, {
       method: "POST",
       headers: {
         // Authorization: `Bearer `,
-        // Authorization: `Bearer ${useAuthStates.getState().access_token}`,
         "Content-Type": "application/json",
       },
       body,
-      //   mode: "no-cors",
     });
     return response;
   }
@@ -51,15 +50,13 @@ export async function FetchHandler(params: FetchHandlerDto): Promise<Response> {
     route: string,
     query: string
   ): Promise<Response> {
-    const response: Response = await fetch(url.v1 + route + "?" + query, {
+    const response: Response = await fetch(url + route + "?" + query, {
       method: "DELETE",
       //   headers: {
       //     Authorization: `Bearer `,
-      //     // Authorization: `Bearer ${useAuthStates.getState().access_token}`,
       //   },
-      //   mode: "no-cors",
     });
-    console.log(url.v1 + route + "?" + query);
+    console.log(url + route + "?" + query);
     return response;
   }
 }

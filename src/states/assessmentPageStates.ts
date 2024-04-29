@@ -88,6 +88,7 @@ export const assessmentPageState = create<AssessmentState>((set, get) => ({
       route: "/bakat40/pernyataan",
       method: "GET",
     });
+
     const pernyataanArray: PernyataanArray[] = await data.json();
     pernyataanArray.map((pernyataan: PernyataanArray, idx: number) => {
       pernyataanArray[idx].skor = 0;
