@@ -6,9 +6,9 @@ type FetchHandlerDto = {
 };
 export async function FetchHandler(params: FetchHandlerDto): Promise<Response> {
   const url =
-    process.env.NODE_ENV === "production"
-      ? process.env.NEXT_PUBLIC_API_V1_URL_PROD
-      : process.env.NEXT_PUBLIC_API_V1_URL_DEV;
+    process.env.NODE_ENV === "development"
+      ? process.env.NEXT_PUBLIC_API_V1_URL_DEV
+      : process.env.NEXT_PUBLIC_API_V1_URL_PROD;
 
   switch (params.method) {
     case "POST":
