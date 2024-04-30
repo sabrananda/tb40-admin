@@ -40,6 +40,7 @@ export const assessmentPageState = create<AssessmentState>((set, get) => ({
           method: "POST",
           body: JSON.stringify(body),
           headers: { "Content-Type": "application/json" },
+          credentials: "include",
         }
       );
 
@@ -59,15 +60,7 @@ export const assessmentPageState = create<AssessmentState>((set, get) => ({
         bakat40,
         kekuatanDanKelemahan,
       }: ResultPage = await data.json();
-      //   console.log({
-      //     identitas,
-      //     bahasaHati,
-      //     bakat,
-      //     gayaBelajar,
-      //     kepribadian,
-      //     potensiSifatTercela,
-      //     ranks40,
-      //   });
+
       resultPageStates.setState({
         identitas,
         ranks40,
