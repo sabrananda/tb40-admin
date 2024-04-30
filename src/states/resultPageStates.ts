@@ -1,5 +1,4 @@
 import { create } from "zustand";
-import { FetchHandler } from "../utils/fetchHandler";
 interface ResultPageStates {
   bakat3: { id: number; arab: string }[];
   bakat6: { id: number; arab: string; bakat40_id: number[] }[];
@@ -130,12 +129,7 @@ export interface KekuatanDanKelemahan {
   bakatKekuatan: Bakat40[];
   bakatKelemahan: Bakat40[];
 }
-interface Bakata {
-  id: number;
-  arab: string;
-  latin: string;
-  arti: string;
-}
+
 interface Bakat40 {
   id: number;
   label?: string;

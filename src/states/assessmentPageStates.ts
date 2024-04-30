@@ -1,9 +1,7 @@
 import { create } from "zustand";
 import { SkorRank } from "./interface";
-import { FetchHandler } from "../utils/fetchHandler";
 import { homeState } from "./homeState";
 import { ResultPage, resultPageStates } from "./resultPageStates";
-import { headers } from "next/headers";
 
 interface AssessmentState {
   setScore: (score: number, id: number) => void;
@@ -41,15 +39,11 @@ export const assessmentPageState = create<AssessmentState>((set, get) => ({
           body: JSON.stringify(body),
           headers: {
             "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "https://tb40.vercel.app",
-            "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
-            "Access-Control-Allow-Headers":
-              "X-Requested-With, Content-Type, Accept, Origin, Authorization",
           },
-          credentials: "include",
+          //   credentials: "include",
         }
       );
-
+      //
       const {
         identitas,
         bahasaHati,
