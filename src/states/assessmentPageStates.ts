@@ -42,6 +42,9 @@ export const assessmentPageState = create<AssessmentState>((set, get) => ({
           headers: {
             "Content-Type": "application/json",
             "Access-Control-Allow-Origin": "https://tb40.vercel.app",
+            "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+            "Access-Control-Allow-Headers":
+              "X-Requested-With, Content-Type, Accept, Origin, Authorization",
           },
           credentials: "include",
         }
