@@ -22,10 +22,13 @@ interface ResultPageStates {
 }
 export const resultPageStates = create<ResultPageStates>((set, get) => ({
   async getResultPageDefaultStates() {
-    const data = FetchHandler({
-      route: "/result/getDefaultResultStates",
-      method: "GET",
-    });
+    const data = fetch(
+      process.env.NEXT_PUBLIC_API_V1_URL_PROD + "/result/getDefaultResultStates"
+    );
+    // const data = FetchHandler({
+    //   route: "/result/getDefaultResultStates",
+    //   method: "GET",
+    // });
     return await (await data).json();
   },
   identitas: { nama: "" },

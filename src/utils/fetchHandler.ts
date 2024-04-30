@@ -5,10 +5,7 @@ type FetchHandlerDto = {
   query?: string;
 };
 export async function FetchHandler(params: FetchHandlerDto): Promise<Response> {
-  const url =
-    process.env.NODE_ENV === "development"
-      ? process.env.NEXT_PUBLIC_API_V1_URL_DEV
-      : process.env.NEXT_PUBLIC_API_V1_URL_PROD;
+  const url = process.env.NEXT_PUBLIC_API_V1_URL_PROD;
 
   switch (params.method) {
     case "POST":
@@ -27,8 +24,6 @@ export async function FetchHandler(params: FetchHandlerDto): Promise<Response> {
         // Authorization: `Bearer ${useAuthStates.getState().access_token}`,
         Authorization: `Bearer`,
       },
-      mode: "no-cors",
-      credentials: "include",
     });
     return response;
   }

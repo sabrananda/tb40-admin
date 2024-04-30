@@ -3,6 +3,7 @@ import { SkorRank } from "./interface";
 import { FetchHandler } from "../utils/fetchHandler";
 import { homeState } from "./homeState";
 import { ResultPage, resultPageStates } from "./resultPageStates";
+import { headers } from "next/headers";
 
 interface AssessmentState {
   setScore: (score: number, id: number) => void;
@@ -29,11 +30,19 @@ export const assessmentPageState = create<AssessmentState>((set, get) => ({
       skor40.push({ skor: plrArr.skor, id: plrArr.id });
     });
     try {
-      const data = await FetchHandler({
-        route: "/result",
-        method: "POST",
-        body: JSON.stringify({ nama: homeState.getState().nama, skor40 }),
-      });
+      const body = {
+        nama: homeState.getState().nama,
+        skor40,
+      };
+      const data = await fetch(
+        process.env.NEXT_PUBLIC_API_V1_URL_PROD + "/result",
+        {
+          method: "POST",
+          body: JSON.stringify(body),
+          headers: { "Content-Type": "application/json" },
+        }
+      );
+
       const {
         identitas,
         bahasaHati,
@@ -59,7 +68,6 @@ export const assessmentPageState = create<AssessmentState>((set, get) => ({
       //     potensiSifatTercela,
       //     ranks40,
       //   });
-      console.log();
       resultPageStates.setState({
         identitas,
         ranks40,
@@ -85,14 +93,8 @@ export const assessmentPageState = create<AssessmentState>((set, get) => ({
   pernyataanArray: [],
   async setPernyataan() {
     const data = await fetch(
-      "https://tb40-server.vercel.app/v1/bakat40/pernyataan",
-      { credentials: "include" }
+      process.env.NEXT_PUBLIC_API_V1_URL_PROD + "/bakat40/pernyataan"
     );
-    // const data = await FetchHandler({
-    //   route: "/bakat40/pernyataan",
-    //   method: "GET",
-    // });
-
     const pernyataanArray: PernyataanArray[] = await data.json();
     pernyataanArray.map((pernyataan: PernyataanArray, idx: number) => {
       pernyataanArray[idx].skor = 0;
