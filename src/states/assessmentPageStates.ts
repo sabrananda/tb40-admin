@@ -2,10 +2,11 @@ import { create } from "zustand";
 import { SkorRank } from "./interface";
 import { homeState } from "./homeState";
 import { ResultPage, resultPageStates } from "./resultPageStates";
+import { callResult } from "@/utils/fetchResult";
 
 interface AssessmentState {
   setScore: (score: number, id: number) => void;
-  postAssessment: () => Promise<boolean>;
+  setResultValue: (resultValue: ResultPage) => Promise<boolean>;
   pernyataanArray: PernyataanArray[];
   setPernyataan: () => Promise<void>;
   bakat40Ranks: number[];
@@ -22,45 +23,23 @@ export const assessmentPageState = create<AssessmentState>((set, get) => ({
     set(() => ({ pernyataanArray }));
   },
 
-  async postAssessment() {
-    const skor40: SkorRank[] = [];
-    get().pernyataanArray.map((plrArr) => {
-      skor40.push({ skor: plrArr.skor, id: plrArr.id });
-    });
+  async setResultValue({
+    identitas,
+    bahasaHati,
+    bakat,
+    gayaBelajar,
+    kepribadian,
+    potensiSifatTercela,
+    ranks40,
+    ranks18,
+    ranks6,
+    ranks3,
+    bakat6,
+    bakat3,
+    bakat40,
+    kekuatanDanKelemahan,
+  }) {
     try {
-      const body = {
-        nama: homeState.getState().nama,
-        skor40,
-      };
-      const data = await fetch(
-        process.env.NEXT_PUBLIC_API_V1_URL_PROD + "/result",
-        {
-          method: "POST",
-          body: JSON.stringify(body),
-          headers: {
-            "Content-Type": "application/json",
-          },
-          //   credentials: "include",
-        }
-      );
-      //
-      const {
-        identitas,
-        bahasaHati,
-        bakat,
-        gayaBelajar,
-        kepribadian,
-        potensiSifatTercela,
-        ranks40,
-        ranks18,
-        ranks6,
-        ranks3,
-        bakat6,
-        bakat3,
-        bakat40,
-        kekuatanDanKelemahan,
-      }: ResultPage = await data.json();
-
       resultPageStates.setState({
         identitas,
         ranks40,

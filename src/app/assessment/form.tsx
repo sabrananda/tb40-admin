@@ -1,19 +1,24 @@
 "use client";
 import { assessmentPageState } from "@/states/assessmentPageStates";
+import { homeState } from "@/states/homeState";
+import { callResult } from "@/utils/fetchResult";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
 export default function Form() {
   const router = useRouter();
-  const [setScore, postAssessment, setPernyataan, pernyataanArray] =
+  const [setScore, setPernyataan, pernyataanArray, setResultValue] =
     assessmentPageState((state) => [
       state.setScore,
-      state.postAssessment,
       state.setPernyataan,
       state.pernyataanArray,
+      state.setResultValue,
     ]);
+  const [nama] = homeState((state) => [state.nama]);
   async function submitHandler() {
-    const route = await postAssessment();
+    const data = await callResult({ nama, pernyataanArray });
+    const route = await setResultValue(data);
+    // console.log(data);
     // console.log(route);
     if (route) {
       router.push("/result");
